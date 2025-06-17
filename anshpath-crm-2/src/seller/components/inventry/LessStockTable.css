@@ -194,7 +194,7 @@
           flex-wrap: wrap;
         }
 
-        .btn-group-LST-041 .btn {
+        .btn-group-LST-041 .btn-LST-041 {
           border-radius: 8px;
           font-weight: 600;
           margin-right: 8px;
@@ -207,17 +207,17 @@
           align-items: center;
         }
 
-        .btn-group-LST-041 .btn i {
+        .btn-group-LST-041 .btn-LST-041 i {
           margin-right: 6px;
           font-size: 0.9em;
         }
 
-        .btn-group-LST-041 .btn:hover {
+        .btn-group-LST-041 .btn-LST-041:hover {
           transform: translateY(-2px);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-group-LST-041 .btn:active {
+        .btn-group-LST-041 .btn-LST-041:active {
           transform: translateY(0);
         }
 
@@ -286,7 +286,7 @@
             font-size: 1.8rem;
           }
           
-          .btn-group-LST-041 .btn {
+          .btn-group-LST-041 .btn-LST-041 {
             padding: 6px 12px;
             font-size: 0.8rem;
           }
@@ -313,7 +313,7 @@
             justify-content: center;
           }
           
-          .btn-group-LST-041 .btn {
+          .btn-group-LST-041 .btn-LST-041 {
             margin: 4px;
             flex-grow: 1;
             text-align: center;
@@ -384,7 +384,7 @@
   background-color: #2c313a !important;
 }
 
-.body-HDW-01.dark-mode-HDW-01 .btn,
+.body-HDW-01.dark-mode-HDW-01 .btn-LST-041,
 .body-HDW-01.dark-mode-HDW-01 .dt-button {
   background: linear-gradient(135deg, #22223b, #4a4e69) !important;
   color: #fff !important;
