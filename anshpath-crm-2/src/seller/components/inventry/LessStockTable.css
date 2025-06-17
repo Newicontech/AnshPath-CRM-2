@@ -1,0 +1,411 @@
+ 
+        :root {
+          --primary-color-LST-041: #4361ee;
+          --secondary-color-LST-041: #3f37c9;
+          --accent-color-LST-041: #4cc9f0;
+          --success-color-LST-041: #38b000;
+          --danger-color-LST-041: #ef233c;
+          --warning-color-LST-041: #ff9e00;
+          --light-color-LST-041: #f8f9fa;
+          --dark-color-LST-041: #212529;
+          --border-radius-LST-041: 12px;
+          --box-shadow-LST-041: 0 10px 30px rgba(0, 0, 0, 0.1);
+          --transition-LST-041: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f5f7ff;
+          color: var(--dark-color-LST-041);
+          line-height: 1.6;
+        }
+
+        .premium-form-container-LST-041 {
+          max-width: 1200px;
+          margin: 40px auto;
+          padding: 40px;
+          border-radius: var(--border-radius-LST-041);
+          background: white;
+          box-shadow: var(--box-shadow-LST-041);
+          border: none;
+          position: relative;
+          overflow: hidden;
+          transition: var(--transition-LST-041);
+        }
+
+        .premium-form-container-LST-041::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 8px;
+          background: linear-gradient(90deg, var(--primary-color-LST-041), var(--accent-color-LST-041));
+        }
+
+        .premium-form-header-LST-041 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: var(--primary-color-LST-041);
+          position: relative;
+          padding-bottom: 15px;
+        }
+
+        .premium-form-header-LST-041 h2 {
+          font-weight: 700;
+          font-size: 2.2rem;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .premium-form-header-LST-041::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 4px;
+          background: linear-gradient(90deg, var(--primary-color-LST-041), var(--accent-color-LST-041));
+          border-radius: 2px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        .table-responsive-LST-041 {
+          border-radius: var(--border-radius-LST-041);
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          /* padding: 40px; */
+        }
+
+        .table-LST-041 {
+          margin-bottom: 0;
+          border-collapse: separate;
+          border-spacing: 0;
+          border: 1px solid #e0e0e0;
+          border-radius: var(--border-radius-LST-041);
+          overflow: hidden;
+        }
+
+        .table-LST-041 th,
+        .table-LST-041 td {
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          padding: 12px 15px;
+        }
+
+        .table-LST-041 th:last-child,
+        .table-LST-041 td:last-child {
+          border-right: none;
+        }
+
+        .table-LST-041 tr:last-child td {
+          border-bottom: none;
+        }
+
+        #lessStockTable-LST-041 thead th {
+          background-color: #4361ee !important;
+          color: white !important;
+          font-weight: 600;
+          border-bottom: none;
+          border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        #lessStockTable-LST-041 thead th:last-child {
+          border-right: none !important;
+        }
+
+        .table-LST-041 tbody tr:nth-child(even) {
+          background-color: #f8f9fa;
+        }
+
+        .table-LST-041 tbody tr:hover {
+          background-color: rgba(67, 97, 238, 0.1);
+        }
+
+        .negative-qty-LST-041 {
+          color: var(--danger-color-LST-041);
+          font-weight: 600;
+        }
+
+        .zero-qty-LST-041 {
+          color: var(--warning-color-LST-041);
+          font-weight: 600;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+          border: 2px solid #e9ecef;
+          border-radius: var(--border-radius-LST-041);
+          padding: 8px 15px;
+          margin-bottom: 20px;
+        }
+
+        .dataTables_wrapper .dataTables_length select {
+          border: 2px solid #e9ecef;
+          border-radius: var(--border-radius-LST-041);
+          padding: 5px 25px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+          float: right !important;
+          text-align: right !important;
+          margin-top: 10px !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+          margin-left: 5px !important;
+          margin-right: 5px !important;
+          padding: 5px 10px !important;
+          border-radius: 4px !important;
+          border: 1px solid #dee2e6 !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+          background: var(--primary-color-LST-041) !important;
+          color: white !important;
+          border: 1px solid var(--primary-color-LST-041) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+          background: #e9ecef !important;
+          color: var(--dark-color-LST-041) !important;
+        }
+
+        .dt-buttons .btn-group-LST-041 {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .btn-group-LST-041 .btn {
+          border-radius: 8px;
+          font-weight: 600;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          transition: var(--transition-LST-041);
+          padding: 8px 16px;
+          border: none;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .btn-group-LST-041 .btn i {
+          margin-right: 6px;
+          font-size: 0.9em;
+        }
+
+        .btn-group-LST-041 .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-group-LST-041 .btn:active {
+          transform: translateY(0);
+        }
+
+        .btn-colvis-LST-041 {
+          background: linear-gradient(135deg, #6c757d, #5a6268);
+          color: white;
+        }
+
+        .btn-copy-LST-041 {
+          background: linear-gradient(135deg, #17a2b8, #138496);
+          color: white;
+        }
+
+        .btn-csv-LST-041 {
+          background: linear-gradient(135deg, #28a745, #218838);
+          color: white;
+        }
+
+        .btn-excel-LST-041 {
+          background: linear-gradient(135deg, #20c997, #1aa179);
+          color: white;
+        }
+
+        .btn-pdf-LST-041 {
+          background: linear-gradient(135deg, #dc3545, #c82333);
+          color: white;
+        }
+
+        .btn-print-LST-041 {
+          background: linear-gradient(135deg, #6f42c1, #5a3d8a);
+          color: white;
+        }
+
+        .floating-icon-LST-041 {
+          position: absolute;
+          opacity: 0.1;
+          z-index: 0;
+        }
+
+        .floating-icon-1-LST-041 {
+          top: 20px;
+          right: 20px;
+          font-size: 5rem;
+          color: var(--primary-color-LST-041);
+        }
+
+        .floating-icon-2-LST-041 {
+          bottom: 20px;
+          left: 20px;
+          font-size: 4rem;
+          color: var(--accent-color-LST-041);
+        }
+
+        @media (max-width: 992px) {
+          .premium-form-container-LST-041 {
+            padding: 30px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .premium-form-container-LST-041 {
+            padding: 25px;
+          }
+          
+          .premium-form-header-LST-041 h2 {
+            font-size: 1.8rem;
+          }
+          
+          .btn-group-LST-041 .btn {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .premium-form-container-LST-041 {
+            padding: 20px 15px;
+          }
+          
+          .premium-form-header-LST-041 h2 {
+            font-size: 1.5rem;
+          }
+          
+          .dataTables_wrapper .dataTables_length,
+          .dataTables_wrapper .dataTables_filter {
+            text-align: left;
+            margin-bottom: 15px;
+          }
+          
+          .btn-group-LST-041 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          
+          .btn-group-LST-041 .btn {
+            margin: 4px;
+            flex-grow: 1;
+            text-align: center;
+            justify-content: center;
+          }
+
+          .dataTables_wrapper .dataTables_paginate {
+            float: none !important;
+            text-align: center !important;
+            margin-top: 15px;
+          }
+        }
+
+        @keyframes fadeIn-LST-041 {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .premium-form-container-LST-041 {
+          animation: fadeIn-LST-041 0.6s ease-out forwards;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+          float: right !important;
+          text-align: right !important;
+          margin-top: 10px !important;
+        }
+
+        .dt-paging{
+          display: flex;
+          justify-content: space-evenly;
+          padding-top: 10px;
+        }
+
+        .table-LST-041 th,
+.table-LST-041 td {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 15px;
+}
+      
+
+
+
+/* Dark mode for Less Stock Report */
+.body-HDW-01.dark-mode-HDW-01 .premium-form-container-LST-041 {
+  background-color: #23272f !important;
+  color: #e0e0e0 !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .premium-form-header-LST-041 {
+  color: #90a4ae !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .table-LST-041,
+.body-HDW-01.dark-mode-HDW-01 .table-LST-041 th,
+.body-HDW-01.dark-mode-HDW-01 .table-LST-041 td {
+  background-color: #181a1b !important;
+  color: #e0e0e0 !important;
+  border-color: #333 !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .table-striped-LST-041 tbody tr:nth-of-type(odd) {
+  background-color: #23272f !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .table-hover-LST-041 tbody tr:hover {
+  background-color: #2c313a !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .btn,
+.body-HDW-01.dark-mode-HDW-01 .dt-button {
+  background: linear-gradient(135deg, #22223b, #4a4e69) !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 .text-muted {
+  color: #b0b0b0 !important;
+}
+
+.body-HDW-01.dark-mode-HDW-01 ::placeholder {
+  color: #b0b0b0 !important;
+  opacity: 1 !important;
+}
+
+/* Highlight negative and zero quantities in dark mode */
+.body-HDW-01.dark-mode-HDW-01 .negative-qty-LST-041 {
+  color: #ff6b6b !important;
+  font-weight: bold;
+}
+.body-HDW-01.dark-mode-HDW-01 .zero-qty-LST-041 {
+  color: #ffd166 !important;
+  font-weight: bold;
+}

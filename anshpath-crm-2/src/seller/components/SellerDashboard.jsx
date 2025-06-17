@@ -308,7 +308,7 @@ const SellerDashboard = () => {
                 data-submenu="products-HDW-01"
               >
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Add Product</Link>
+                  <Link to="/addProducts">Add Product</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Product List</Link>
