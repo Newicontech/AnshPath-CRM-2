@@ -311,7 +311,7 @@ const SellerDashboard = () => {
                   <Link to="/addProducts">Add Product</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Product List</Link>
+                  <Link to="/products/productList">Product List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Categories</Link>

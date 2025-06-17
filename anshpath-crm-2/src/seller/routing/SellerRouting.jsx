@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardOverview from '../components/dashboard/DashboardOverview';
 import SparePartAdd from '../components/inventry/SparePartAdd';
 import LessStockTable from '../components/inventry/LessStockTable';
-import AddProducts from '../components/products/AddProducts';
+import ProductList from '../components/products/ProductList';
+
 
 const SellerRouting = () => (
   <Routes>
@@ -14,9 +15,8 @@ const SellerRouting = () => (
     <Route path="/inventory/lessStockTable" element={<LessStockTable />} />
     <Route path="/addProducts" element={<AddProducts />} />
 
-    
-     
-    
+    <Route path="/products/productList" element={<ProductList />} />
+
   </Routes>
 );
 
