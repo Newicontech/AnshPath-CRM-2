@@ -126,23 +126,23 @@ const AddProducts = () => {
   };
 
   return (
-    <Container className="emp-container-EF-1234">
-      <Card className="emp-card-EF-1234">
-        <Card.Header className="emp-header-EF-1234">
-          <h5 className="emp-title-EF-1234">
+    <Container className="pf-container">
+      <Card className="pf-card">
+        <Card.Header className="pf-header">
+          <h5 className="pf-title">
             <FiPackage className="me-2" />
             Add Automobile Product
           </h5>
         </Card.Header>
-        <Card.Body className="emp-body-EF-1234">
+        <Card.Body className="pf-body">
           {isSubmitted ? (
-            <div className="emp-success-EF-1234">
-              <FiCheckCircle className="emp-success-icon-EF-1234" />
-              <h4 className="emp-success-title-EF-1234">Success!</h4>
-              <p className="emp-success-message-EF-1234">Product has been added successfully.</p>
+            <div className="pf-success">
+              <FiCheckCircle className="pf-success-icon" />
+              <h4 className="pf-success-title">Success!</h4>
+              <p className="pf-success-message">Product has been added successfully.</p>
               <Button 
                 variant="primary" 
-                className="emp-btn-EF-1234 emp-new-btn-EF-1234"
+                className="pf-btn pf-new-btn"
                 onClick={handleReset}
               >
                 <FiPackage className="me-1" />
@@ -150,17 +150,17 @@ const AddProducts = () => {
               </Button>
             </div>
           ) : (
-            <Form onSubmit={handleSubmit} className="emp-form-EF-1234">
+            <Form onSubmit={handleSubmit} className="pf-form">
               {/* Enhanced Product Image Upload at the top */}
-              <div className="emp-photo-container-EF-1234">
-                <div className="emp-photo-preview-EF-1234">
+              <div className="pf-photo-container">
+                <div className="pf-photo-preview">
                   {formData.productImage ? (
                     <img src={formData.productImage} alt="Product" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : (
                     <FiImage size={48} color="#a0aec0" />
                   )}
                 </div>
-                <div className="emp-photo-upload-EF-1234">
+                <div className="pf-photo-upload">
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -170,13 +170,13 @@ const AddProducts = () => {
                   />
                   <Button
                     variant="outline-secondary"
-                    className="emp-photo-upload-btn-EF-1234"
+                    className="pf-photo-upload-btn"
                     onClick={triggerFileInput}
                   >
                     <FiImage className="me-1" />
                     Upload Product Image
                   </Button>
-                  <div className="emp-photo-hint-EF-1234">JPG or PNG, max 2MB</div>
+                  <div className="pf-photo-hint">JPG or PNG, max 2MB</div>
                 </div>
               </div>
 
@@ -184,7 +184,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6} className="mb-3 mb-md-0">
                   <Form.Group controlId="productName">
-                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                    <Form.Label className="pf-label pf-required">
                       <FiTag size={16} />
                       Product Name
                     </Form.Label>
@@ -194,17 +194,17 @@ const AddProducts = () => {
                       value={formData.productName}
                       onChange={handleChange}
                       isInvalid={!!errors.productName}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., Engine Oil 5W-30"
                     />
-                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                    <Form.Control.Feedback type="invalid" className="pf-error">
                       {errors.productName}
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Col>
                 <Col md={6}>
                   <Form.Group controlId="category">
-                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                    <Form.Label className="pf-label pf-required">
                       <FiArchive size={16} />
                       Category
                     </Form.Label>
@@ -213,7 +213,7 @@ const AddProducts = () => {
                       value={formData.category}
                       onChange={handleChange}
                       isInvalid={!!errors.category}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                     >
                       <option value="">Select Category</option>
                       {categories.map((category) => (
@@ -222,7 +222,7 @@ const AddProducts = () => {
                         </option>
                       ))}
                     </Form.Select>
-                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                    <Form.Control.Feedback type="invalid" className="pf-error">
                       {errors.category}
                     </Form.Control.Feedback>
                   </Form.Group>
@@ -232,7 +232,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6} className="mb-3 mb-md-0">
                   <Form.Group controlId="brand">
-                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                    <Form.Label className="pf-label pf-required">
                       <FiTag size={16} />
                       Brand
                     </Form.Label>
@@ -242,17 +242,17 @@ const AddProducts = () => {
                       value={formData.brand}
                       onChange={handleChange}
                       isInvalid={!!errors.brand}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., Castrol"
                     />
-                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                    <Form.Control.Feedback type="invalid" className="pf-error">
                       {errors.brand}
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Col>
                 <Col md={6}>
                   <Form.Group controlId="vehicleCompatibility">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiTruck size={16} />
                       Vehicle Compatibility
                     </Form.Label>
@@ -261,7 +261,7 @@ const AddProducts = () => {
                       name="vehicleCompatibility"
                       value={formData.vehicleCompatibility}
                       onChange={handleChange}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., Maruti Swift 2015–2020"
                     />
                   </Form.Group>
@@ -271,7 +271,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6} className="mb-3 mb-md-0">
                   <Form.Group controlId="price">
-                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                    <Form.Label className="pf-label pf-required">
                       <FiDollarSign size={16} />
                       Price (₹)
                     </Form.Label>
@@ -281,17 +281,17 @@ const AddProducts = () => {
                       value={formData.price}
                       onChange={handleChange}
                       isInvalid={!!errors.price}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., 1200"
                     />
-                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                    <Form.Control.Feedback type="invalid" className="pf-error">
                       {errors.price}
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Col>
                 <Col md={6}>
                   <Form.Group controlId="discountPrice">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiDollarSign size={16} />
                       Discounted Price (₹)
                     </Form.Label>
@@ -301,10 +301,10 @@ const AddProducts = () => {
                       value={formData.discountPrice}
                       onChange={handleChange}
                       isInvalid={!!errors.discountPrice}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., 999"
                     />
-                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                    <Form.Control.Feedback type="invalid" className="pf-error">
                       {errors.discountPrice}
                     </Form.Control.Feedback>
                   </Form.Group>
@@ -314,7 +314,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6} className="mb-3 mb-md-0">
                   <Form.Group controlId="stockStatus">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiArchive size={16} />
                       Stock Status
                     </Form.Label>
@@ -322,7 +322,7 @@ const AddProducts = () => {
                       name="stockStatus"
                       value={formData.stockStatus}
                       onChange={handleChange}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                     >
                       {stockStatusOptions.map((status) => (
                         <option key={status} value={status}>
@@ -334,7 +334,7 @@ const AddProducts = () => {
                 </Col>
                 <Col md={6}>
                   <Form.Group controlId="sku">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiFileText size={16} />
                       Product SKU
                     </Form.Label>
@@ -343,7 +343,7 @@ const AddProducts = () => {
                       name="sku"
                       value={formData.sku}
                       onChange={handleChange}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., PRO-ENG-1054"
                     />
                   </Form.Group>
@@ -353,7 +353,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6} className="mb-3 mb-md-0">
                   <Form.Group controlId="warranty">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiFileText size={16} />
                       Warranty
                     </Form.Label>
@@ -362,14 +362,14 @@ const AddProducts = () => {
                       name="warranty"
                       value={formData.warranty}
                       onChange={handleChange}
-                      className="emp-input-EF-1234"
+                      className="pf-input"
                       placeholder="e.g., 6 Months Manufacturer Warranty"
                     />
                   </Form.Group>
                 </Col>
                  <Col md={6}>
                   <Form.Group controlId="keyFeatures">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiFileText size={16} />
                       Key Features
                     </Form.Label>
@@ -379,7 +379,7 @@ const AddProducts = () => {
                       value={formData.keyFeatures}
                       onChange={handleChange}
                       rows={3}
-                      className="emp-input-EF-1234 emp-textarea-EF-1234 form-control-EF-1234"
+                      className="pf-input pf-textarea form-control"
                       placeholder="Bullet points about product features"
                     />
                   </Form.Group>
@@ -389,7 +389,7 @@ const AddProducts = () => {
               <Row className="mb-4">
                 <Col md={6}>
                   <Form.Group controlId="shortDescription">
-                    <Form.Label className="emp-label-EF-1234">
+                    <Form.Label className="pf-label">
                       <FiFileText size={16} />
                       Short Description
                     </Form.Label>
@@ -399,7 +399,7 @@ const AddProducts = () => {
                       value={formData.shortDescription}
                       onChange={handleChange}
                       rows={2}
-                      className="emp-input-EF-1234 emp-textarea-EF-1234"
+                      className="pf-input pf-textarea"
                       placeholder="Short 1-2 line summary"
                     />
                   </Form.Group>
@@ -410,10 +410,10 @@ const AddProducts = () => {
                 
               </Row>
 
-              <div className="emp-actions-EF-1234">
+              <div className="pf-actions">
                 <Button 
                   variant="outline-secondary" 
-                  className="emp-btn-EF-1234 emp-cancel-btn-EF-1234"
+                  className="pf-btn pf-cancel-btn"
                   onClick={handleReset}
                 >
                   Reset
@@ -421,7 +421,7 @@ const AddProducts = () => {
                 <Button 
                   variant="primary" 
                   type="submit"
-                  className="emp-btn-EF-1234 emp-submit-btn-EF-1234"
+                  className="pf-btn pf-submit-btn"
                 >
                   Add Product
                 </Button>
@@ -434,8 +434,4 @@ const AddProducts = () => {
   );
 };
 
-
-
 export default AddProducts;
-
- 
