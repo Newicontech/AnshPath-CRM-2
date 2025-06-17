@@ -1,9 +1,441 @@
-import React from 'react'
+import React, { useState, useRef } from 'react';
+import { Container, Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { FiPackage, FiTag, FiTruck, FiDollarSign, FiArchive, FiFileText, FiImage, FiCheckCircle } from 'react-icons/fi';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './AddProducts.css'; 
 
 const AddProducts = () => {
-  return (
-    <div>AddProducts</div>
-  )
-}
+  const [formData, setFormData] = useState({
+    productName: '',
+    category: '',
+    brand: '',
+    vehicleCompatibility: '',
+    price: '',
+    discountPrice: '',
+    stockStatus: 'In Stock',
+    sku: '',
+    warranty: '',
+    keyFeatures: '',
+    shortDescription: '',
+    productImage: null
+  });
 
-export default AddProducts
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const fileInputRef = useRef(null);
+
+  // Categories data
+  const categories = [
+    'Engine Parts',
+    'Tyres',
+    'Accessories',
+    'Lighting',
+    'Brake Systems',
+    'Suspension',
+    'Exhaust Systems',
+    'Interior Parts'
+  ];
+
+  const stockStatusOptions = [
+    'In Stock',
+    'Out of Stock',
+    'Limited Stock',
+    'Pre-order'
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData({
+          ...formData,
+          productImage: reader.result
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const requiredFields = ['productName', 'category', 'brand', 'price'];
+
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    if (formData.price && isNaN(formData.price)) {
+      newErrors.price = 'Please enter a valid price';
+    }
+
+    if (formData.discountPrice && isNaN(formData.discountPrice)) {
+      newErrors.discountPrice = 'Please enter a valid discount price';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Product submitted:', formData);
+      setIsSubmitted(true);
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      productName: '',
+      category: '',
+      brand: '',
+      vehicleCompatibility: '',
+      price: '',
+      discountPrice: '',
+      stockStatus: 'In Stock',
+      sku: '',
+      warranty: '',
+      keyFeatures: '',
+      shortDescription: '',
+      productImage: null
+    });
+    setErrors({});
+    setIsSubmitted(false);
+  };
+
+  return (
+    <Container className="emp-container-EF-1234">
+      <Card className="emp-card-EF-1234">
+        <Card.Header className="emp-header-EF-1234">
+          <h5 className="emp-title-EF-1234">
+            <FiPackage className="me-2" />
+            Add Automobile Product
+          </h5>
+        </Card.Header>
+        <Card.Body className="emp-body-EF-1234">
+          {isSubmitted ? (
+            <div className="emp-success-EF-1234">
+              <FiCheckCircle className="emp-success-icon-EF-1234" />
+              <h4 className="emp-success-title-EF-1234">Success!</h4>
+              <p className="emp-success-message-EF-1234">Product has been added successfully.</p>
+              <Button 
+                variant="primary" 
+                className="emp-btn-EF-1234 emp-new-btn-EF-1234"
+                onClick={handleReset}
+              >
+                <FiPackage className="me-1" />
+                Add Another Product
+              </Button>
+            </div>
+          ) : (
+            <Form onSubmit={handleSubmit} className="emp-form-EF-1234">
+              {/* Enhanced Product Image Upload at the top */}
+              <div className="emp-photo-container-EF-1234">
+                <div className="emp-photo-preview-EF-1234">
+                  {formData.productImage ? (
+                    <img src={formData.productImage} alt="Product" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <FiImage size={48} color="#a0aec0" />
+                  )}
+                </div>
+                <div className="emp-photo-upload-EF-1234">
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleImageChange}
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                  />
+                  <Button
+                    variant="outline-secondary"
+                    className="emp-photo-upload-btn-EF-1234"
+                    onClick={triggerFileInput}
+                  >
+                    <FiImage className="me-1" />
+                    Upload Product Image
+                  </Button>
+                  <div className="emp-photo-hint-EF-1234">JPG or PNG, max 2MB</div>
+                </div>
+              </div>
+
+              {/* All fields arranged in rows with 2 columns each */}
+              <Row className="mb-4">
+                <Col md={6} className="mb-3 mb-md-0">
+                  <Form.Group controlId="productName">
+                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                      <FiTag size={16} />
+                      Product Name
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="productName"
+                      value={formData.productName}
+                      onChange={handleChange}
+                      isInvalid={!!errors.productName}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., Engine Oil 5W-30"
+                    />
+                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                      {errors.productName}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group controlId="category">
+                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                      <FiArchive size={16} />
+                      Category
+                    </Form.Label>
+                    <Form.Select
+                      name="category"
+                      value={formData.category}
+                      onChange={handleChange}
+                      isInvalid={!!errors.category}
+                      className="emp-input-EF-1234"
+                    >
+                      <option value="">Select Category</option>
+                      {categories.map((category) => (
+                        <option key={category} value={category}>
+                          {category}
+                        </option>
+                      ))}
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                      {errors.category}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                <Col md={6} className="mb-3 mb-md-0">
+                  <Form.Group controlId="brand">
+                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                      <FiTag size={16} />
+                      Brand
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="brand"
+                      value={formData.brand}
+                      onChange={handleChange}
+                      isInvalid={!!errors.brand}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., Castrol"
+                    />
+                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                      {errors.brand}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group controlId="vehicleCompatibility">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiTruck size={16} />
+                      Vehicle Compatibility
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="vehicleCompatibility"
+                      value={formData.vehicleCompatibility}
+                      onChange={handleChange}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., Maruti Swift 2015–2020"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                <Col md={6} className="mb-3 mb-md-0">
+                  <Form.Group controlId="price">
+                    <Form.Label className="emp-label-EF-1234 required-EF-1234">
+                      <FiDollarSign size={16} />
+                      Price (₹)
+                    </Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="price"
+                      value={formData.price}
+                      onChange={handleChange}
+                      isInvalid={!!errors.price}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., 1200"
+                    />
+                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                      {errors.price}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group controlId="discountPrice">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiDollarSign size={16} />
+                      Discounted Price (₹)
+                    </Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="discountPrice"
+                      value={formData.discountPrice}
+                      onChange={handleChange}
+                      isInvalid={!!errors.discountPrice}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., 999"
+                    />
+                    <Form.Control.Feedback type="invalid" className="emp-error-EF-1234">
+                      {errors.discountPrice}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                <Col md={6} className="mb-3 mb-md-0">
+                  <Form.Group controlId="stockStatus">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiArchive size={16} />
+                      Stock Status
+                    </Form.Label>
+                    <Form.Select
+                      name="stockStatus"
+                      value={formData.stockStatus}
+                      onChange={handleChange}
+                      className="emp-input-EF-1234"
+                    >
+                      {stockStatusOptions.map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group controlId="sku">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiFileText size={16} />
+                      Product SKU
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="sku"
+                      value={formData.sku}
+                      onChange={handleChange}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., PRO-ENG-1054"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                <Col md={6} className="mb-3 mb-md-0">
+                  <Form.Group controlId="warranty">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiFileText size={16} />
+                      Warranty
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="warranty"
+                      value={formData.warranty}
+                      onChange={handleChange}
+                      className="emp-input-EF-1234"
+                      placeholder="e.g., 6 Months Manufacturer Warranty"
+                    />
+                  </Form.Group>
+                </Col>
+                 <Col md={6}>
+                  <Form.Group controlId="keyFeatures">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiFileText size={16} />
+                      Key Features
+                    </Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      name="keyFeatures"
+                      value={formData.keyFeatures}
+                      onChange={handleChange}
+                      rows={3}
+                      className="emp-input-EF-1234 emp-textarea-EF-1234 form-control-EF-1234"
+                      placeholder="Bullet points about product features"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                <Col md={6}>
+                  <Form.Group controlId="shortDescription">
+                    <Form.Label className="emp-label-EF-1234">
+                      <FiFileText size={16} />
+                      Short Description
+                    </Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      name="shortDescription"
+                      value={formData.shortDescription}
+                      onChange={handleChange}
+                      rows={2}
+                      className="emp-input-EF-1234 emp-textarea-EF-1234"
+                      placeholder="Short 1-2 line summary"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row className="mb-4">
+                
+              </Row>
+
+              <div className="emp-actions-EF-1234">
+                <Button 
+                  variant="outline-secondary" 
+                  className="emp-btn-EF-1234 emp-cancel-btn-EF-1234"
+                  onClick={handleReset}
+                >
+                  Reset
+                </Button>
+                <Button 
+                  variant="primary" 
+                  type="submit"
+                  className="emp-btn-EF-1234 emp-submit-btn-EF-1234"
+                >
+                  Add Product
+                </Button>
+              </div>
+            </Form>
+          )}
+        </Card.Body>
+      </Card>
+    </Container>
+  );
+};
+
+
+
+export default AddProducts;
+
+ 
