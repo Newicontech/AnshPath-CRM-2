@@ -525,6 +525,9 @@
     width: 120px;
     height: 120px;
   }
+  .pf-floating-icon-1{
+    display: none;
+  }
 }
 /* Animations */
 @keyframes fadeIn {

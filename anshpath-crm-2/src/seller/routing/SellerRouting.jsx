@@ -13,7 +13,6 @@ const SellerRouting = () => (
     <Route path="/inventory/sparePartsAdd" element={<SparePartAdd />} />
     <Route path="/inventory/lessStockTable" element={<LessStockTable />} />
     <Route path="/addProducts" element={<AddProducts />} />
-
     
      
     
