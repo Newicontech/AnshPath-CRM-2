@@ -1,0 +1,160 @@
+.modal-wrapper-ed {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content-ed {
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 50%;                /* increased from 700px */
+  max-width: 1000px;           /* allow larger width */
+  max-height: 95vh;            /* slightly taller */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header-ed {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 16px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.modal-body-ed {
+  padding: 20px;
+  background-color: var(--bg-light);
+  overflow-y: auto;
+  flex: 1; /* allow body to expand and scroll if needed */
+}
+
+.modal-footer-ed {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+.btn-close-ed {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+
+.btn-cancel-ed {
+  background-color: var(--error-color); /* Red */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel-ed:hover {
+  background-color: #c82333;
+}
+
+.btn-save-ed {
+  background-color: var(--primary-color); /* Blue */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save-ed:hover {
+  background-color: var(--secondary-color);
+}
+
+.form-control-ed {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  margin-bottom: 10px; /* add spacing only if needed */
+}
+.image-wrapper-ed {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the image horizontally */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.img-fluid-ed {
+  max-height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* DARK MODE */
+.dark-mode-HDW-01 .modal-content-ed {
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+.dark-mode-HDW-01 .form-control-ed {
+  background-color: var(--bg-muted);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+@media (max-width: 768px) {
+  .modal-content-ed {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+
+  .modal-body-ed {
+    padding: 15px;
+  }
+}
+.row-ed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* less space between fields */
+}
+
+.col-6 {
+  flex: 0 0 48%; /* allows 2 inputs side-by-side with gap */
+  max-width: 48%;
+}
+
+@media (max-width: 768px) {
+  .row-ed {
+    grid-template-columns: 1fr; /* stack fields on smaller screens */
+  }
+}
+
+/* Optional: increase label spacing and font size for clarity */
+.row-ed label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}

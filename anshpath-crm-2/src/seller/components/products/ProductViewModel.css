@@ -1,0 +1,129 @@
+.modal-wrapper-vs {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content-vs {
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header-vs {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 16px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.modal-body-vs {
+  padding: 20px;
+  background-color: var(--bg-light);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer-vs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+}
+
+.btn-close-vs {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-close-vs:hover {
+  color: var(--error-color);
+}
+
+.btn-cancel-vs {
+  background-color: var(--error-color);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel-vs:hover {
+  background-color: #c82333;
+}
+
+.text-center-vs img {
+  display: block;
+  margin: 0 auto 12px auto; /* center image horizontally with margin-bottom */
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg-muted);
+  padding: 2px;
+  border: 1px solid var(--border-color);
+}
+
+.text-center-vs h5 {
+  font-size: 20px;
+   margin-bottom: 20px;
+    text-align: center;
+  font-weight: 600;
+  margin-bottom: 12px; /* less space below title */
+}
+
+.row-vs > div {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 6px; /* less vertical spacing */
+}
+
+/* Dark mode support */
+.dark-mode-HDW-01 .modal-content-vs {
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+.dark-mode-HDW-01 .modal-body-vs {
+  background-color: var(--bg-light);
+}
+
+.dark-mode-HDW-01 img {
+  background: var(--bg-muted);
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .modal-content-vs {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+
+  .modal-body-vs {
+    padding: 15px;
+  }
+}
