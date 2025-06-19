@@ -363,7 +363,7 @@ const SellerDashboard = () => {
                   <Link to="#">Add Service</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Service List</Link>
+                  <Link to="/ServiceList">Service List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">New Requests</Link>

@@ -1,0 +1,380 @@
+:root {
+  --primary-color-ST: #3b59d2;
+  --secondary-color-ST: #4cc9f0;
+  --error-color-ST: #dc3545;
+  --success-color-ST: #28a745;
+  --bg-light-ST: #ffffff;
+  --bg-muted-ST: #f8f9fc;
+  --bg-alt-ST: #eaf3fa;
+  --text-color-ST: #212529;
+  --border-color-ST: #dee2e6;
+  --box-shadow-ST: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius-ST: 8px;
+}
+
+.dark-mode-HDW-01 {
+  --primary-color-ST: #5f8cff;
+  --secondary-color-ST: #4dabf7;
+  --error-color-ST: #ff6b6b;
+  --success-color-ST: #69db7c;
+  --bg-light-ST: #232324;
+  --bg-muted-ST: #2e2e40;
+  --bg-alt-ST: #2a2a2a;
+  --text-color-ST: #f5f5f5;
+  --border-color-ST: #444;
+  --box-shadow-ST: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* === Container === */
+.service-list-container-ST {
+  padding: 20px;
+  background-color: var(--bg-light-ST);
+  border-top: 8px solid var(--primary-color-ST);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-ST);
+  color: var(--text-color-ST);
+}
+
+/* === Title === */
+.title-ST {
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color-ST);
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.title-ST::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color-ST);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+
+/* === Search Input === */
+.search-input-ST {
+  max-width: 250px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  display: block;
+  border-radius: var(--border-radius-ST);
+  border: 1px solid var(--border-color-ST);
+  background-color: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+.search-input-ST:focus {
+  background-color: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  border-color: var(--primary-color-ST);
+  outline: none;
+}
+.dark-mode-HDW-01 .search-input-ST::placeholder {
+  color: var(--text-color-ST);
+  opacity: 0.6;
+}
+
+/* === Table === */
+.service-table-ST {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-light-ST);
+  color: var(--text-color-ST);
+}
+.service-table-ST th,
+.service-table-ST td {
+  border: none;
+  text-align: center;
+  padding: 12px;
+  vertical-align: middle;
+  background-color: inherit;
+  color: var(--text-color-ST);
+}
+.service-table-ST thead th {
+  background-color: var(--primary-color-ST);
+  color: white;
+  font-weight: bold;
+}
+.service-table-ST tbody tr:nth-child(odd) {
+  background-color: var(--bg-light-ST);
+}
+.service-table-ST tbody tr:nth-child(even) {
+  background-color: var(--bg-alt-ST);
+}
+.service-table-ST tbody tr:hover {
+  background-color: var(--border-color-ST);
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+/* === Sort Icons === */
+.sortable-th-ST {
+  cursor: pointer;
+}
+.sort-indicator-ST {
+  font-size: 12px;
+  margin-left: 5px;
+  color: var(--secondary-color-ST);
+}
+
+/* === Page Size Dropdown === */
+.page-size-selector-ST {
+  margin: 12px 0;
+  max-width: 200px;
+  border-radius: 6px;
+  background: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  border: 1px solid var(--border-color-ST);
+}
+.page-size-wrapper-ST {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+/* === Pagination === */
+.pagination-container-ST .page-link {
+  border: 1px solid var(--border-color-ST);
+  padding: 6px 12px;
+  background-color: var(--bg-light-ST);
+  color: var(--primary-color-ST);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.pagination-container-ST .page-link:hover {
+  background-color: var(--secondary-color-ST);
+}
+.pagination-container-ST .page-link.active,
+.pagination-container-ST .page-link:disabled {
+  background-color: var(--primary-color-ST);
+  color: #fff;
+  border-color: var(--primary-color-ST);
+  pointer-events: none;
+}
+
+/* === Modal Styles === */
+.edit-popup-overlay-ST,
+.delete-popup-overlay-ST {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.edit-popup-ST {
+  background-color: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  padding: 24px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px; /* Keep original width for edit */
+  box-shadow: var(--box-shadow-ST);
+}
+
+.delete-popup-ST {
+  background-color: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  padding: 24px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px; /* Reduced width just for delete */
+  box-shadow: var(--box-shadow-ST);
+}
+
+.edit-popup-ST h3,
+.delete-popup-ST h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primary-color-ST);
+  margin-bottom: 20px;
+}
+
+/* === Form Fields === */
+.edit-scroll-ST {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.field-row-ST {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.field-group-ST {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+.field-group-ST label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--primary-color-ST);
+}
+.field-group-ST input,
+.field-group-ST select {
+  padding: 8px;
+  border-radius: 6px;
+  background: var(--bg-light-ST);
+  color: var(--text-color-ST);
+  border: 1px solid var(--border-color-ST);
+}
+
+/* === Popup Buttons === */
+.popup-actions-ST {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.popup-actions-ST button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.edit-btn-ST {
+  background-color: var(--success-color-ST);
+  color: white;
+}
+.edit-btn-ST:hover {
+  background-color: #218838;
+}
+.delete-btn-ST {
+  background-color: var(--error-color-ST);
+  color: white;
+}
+.delete-btn-ST:hover {
+  background-color: #c82333;
+}
+
+/* === New Icon-Only Buttons === */
+.edit-icon-btn-ST {
+  color: var(--success-color-ST);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.edit-icon-btn-ST:hover {
+  color: #1e7e34;
+}
+
+.delete-icon-btn-ST {
+  color: var(--error-color-ST);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.delete-icon-btn-ST:hover {
+  color: #bd2130;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .title-ST {
+    font-size: 20px;
+  }
+  .service-table-ST th,
+  .service-table-ST td {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .search-input-ST,
+  .page-size-selector-ST {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .field-row-ST {
+    flex-direction: column;
+  }
+}
+/* Print and excel button  */
+.export-buttons-ST {
+  display: flex;
+  gap: 12px;
+}
+
+/* Common style for both buttons */
+.export-btn-ST {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  color: white;
+  box-shadow: var(--box-shadow-ST);
+}
+
+/* Specific colors */
+.print-btn-ST {
+  background-color: var(--primary-color-ST);
+}
+
+.print-btn-ST:hover {
+  background-color: #2d44b3; /* darker primary */
+}
+
+.excel-btn-ST {
+  background-color: var(--success-color-ST);
+}
+
+.excel-btn-ST:hover {
+  background-color: #218838; /* darker green */
+}
+
+/* Dark mode overrides (still white text, same background) */
+.dark-mode-HDW-01 .export-btn-ST {
+  box-shadow: none;
+}
+/* edit and delete button  */
+/* === Modal Action Buttons (Cancel / Save / Delete) === */
+.edit-ST {
+  background-color: var(--success-color-ST);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-ST:hover {
+  background-color: #218838; /* Darker green */
+}
+
+.delete-ST {
+  background-color: var(--error-color-ST);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* .delete-ST:hover {
+  background-color: #c82333; 
+} */

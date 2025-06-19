@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import * as XLSX from 'xlsx';
 import { FaPrint } from 'react-icons/fa';
 import './ProcessingOrdersTable.css';
+import { FaUser, FaPhone, FaBox, FaBarcode, FaHashtag, FaCalendarAlt, FaLayerGroup, FaMoneyBill, FaReceipt, FaMapMarkerAlt } from 'react-icons/fa';
+
 
 
 const stageColorsLight = {
@@ -48,9 +50,8 @@ const ProcessingOrdersTable = ({ darkToggle }) => {
   const [deleteCandidate, setDeleteCandidate] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
   const printRef = useRef();
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-
-  const rowsPerPage = 10;
 
   const handleDeleteConfirm = () => {
     if (deleteCandidate) {
@@ -119,11 +120,16 @@ const ProcessingOrdersTable = ({ darkToggle }) => {
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
 const handlePrint = () => {
-  const printContent = printRef.current;
-  if (!printContent) return;
+  const tableClone = printRef.current.cloneNode(true);
+  const rows = tableClone.querySelectorAll('tr');
+  rows.forEach(row => {
+    if (row.cells.length > 0) {
+      row.deleteCell(row.cells.length - 1);
+    }
+  });
 
   const printWindow = window.open('', '', 'height=600,width=800');
-  printWindow.document.write('<html></title>');
+  printWindow.document.write('<html><head>');
   printWindow.document.write('<style>');
   printWindow.document.write(`
     .print-styles-AP01 body {
@@ -145,7 +151,7 @@ const handlePrint = () => {
     .print-styles-AP01 table {
       width: 100%;
       border-collapse: collapse;
-      height:80%;
+      height: auto;
     }
     .print-styles-AP01 th, .print-styles-AP01 td {
       border: 1px solid #999;
@@ -156,11 +162,10 @@ const handlePrint = () => {
       background-color: #f0f0f0;
     }
   `);
-  printWindow.document.write('</style>');
-  printWindow.document.write('</head><body class="print-styles-AP01">');
+  printWindow.document.write('</style></head><body class="print-styles-AP01">');
   printWindow.document.write('<h1>AnshPath Technology Private Limited</h1>');
-  printWindow.document.write('<h2>Processing Orders</h2>');
-  printWindow.document.write(printContent.innerHTML);
+  printWindow.document.write('<h2>Processing Product List</h2>');
+  printWindow.document.write(tableClone.outerHTML);
   printWindow.document.write('</body></html>');
   printWindow.document.close();
   printWindow.focus();
@@ -281,16 +286,62 @@ const handlePrint = () => {
         </table>
       </div>
       </div>
-      <div className="export-buttons-POD">
-        <button onClick={handlePrint} className="button-POD"><FaPrint /> Print</button>
-        <button onClick={exportToExcel} className="button-POD"><FaFileExcel /> Excel</button>
+      <div className="export-controls-row-POD">
+        <div className="page-size-selector-POD">
+          <label htmlFor="rowsPerPage"></label>
+          <select
+            id="rowsPerPage"
+            value={rowsPerPage}
+            onChange={(e) => {
+              setRowsPerPage(Number(e.target.value));
+              setCurrentPage(1);
+            }}
+          >
+            {[5, 10, 15, 20].map(size => (
+              <option key={size} value={size}>{size}  per page</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="export-buttons-POD">
+          <button onClick={handlePrint} className="button-POD"><FaPrint /> Print</button>
+          <button onClick={exportToExcel} className="button-POD"><FaFileExcel /> Excel</button>
+        </div>
       </div>
 
+
       <div className="pagination-POD">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button key={i} onClick={() => setCurrentPage(i + 1)} className={currentPage === i + 1 ? 'active-POD' : ''}>{i + 1}</button>
-        ))}
+        {/* First */}
+        <button onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>
+          &laquo;
+        </button>
+
+        {/* Previous */}
+        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          &lsaquo;
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1)
+          .filter(page => page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1))
+          .map(page => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={currentPage === page ? 'active-POD' : ''}
+            >
+              {page}
+            </button>
+          ))}
+        {currentPage + 1 < totalPages - 1 && totalPages > 5 && (
+          <button disabled>...</button>
+        )}
+        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+          &rsaquo;
+        </button>
+        <button onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>
+          &raquo;
+        </button>
       </div>
+
 
       {editingId && editedRow && (
         <div className="edit-popup-overlay-POD">
@@ -301,11 +352,11 @@ const handlePrint = () => {
               {/* Row 1 */}
               <div className="field-row-POD">
                 <div className="field-group-POD">
-                  <label>Customer Name</label>
+                  <label><FaUser style={{ marginRight: '6px' }} />Customer Name</label>
                   <input value={editedRow.customerName} onChange={e => handleFieldChange('customerName', e.target.value)} />
                 </div>
                 <div className="field-group-POD">
-                  <label>Contact</label>
+                  <label><FaPhone style={{ marginRight: '6px' }} />Contact</label>
                   <input value={editedRow.contact} onChange={e => handleFieldChange('contact', e.target.value)} />
                 </div>
               </div>
@@ -313,11 +364,11 @@ const handlePrint = () => {
               {/* Row 2 */}
               <div className="field-row-POD">
                 <div className="field-group-POD">
-                  <label>Product Name</label>
+                  <label><FaBox style={{ marginRight: '6px' }} />Product Name</label>
                   <input value={editedRow.productName} onChange={e => handleFieldChange('productName', e.target.value)} />
                 </div>
                 <div className="field-group-POD">
-                  <label>SKU</label>
+                  <label><FaBarcode style={{ marginRight: '6px' }} />SKU</label>
                   <input value={editedRow.sku} onChange={e => handleFieldChange('sku', e.target.value)} />
                 </div>
               </div>
@@ -325,11 +376,11 @@ const handlePrint = () => {
               {/* Row 3 */}
               <div className="field-row-POD">
                 <div className="field-group-POD">
-                  <label>Quantity</label>
+                  <label><FaHashtag style={{ marginRight: '6px' }} />Quantity</label>
                   <input type="number" value={editedRow.quantity} onChange={e => handleFieldChange('quantity', e.target.value)} />
                 </div>
                 <div className="field-group-POD">
-                  <label>Processing Date</label>
+                  <label><FaCalendarAlt style={{ marginRight: '6px' }} />Processing Date</label>
                   <input type="date" value={editedRow.processingDate} onChange={e => handleFieldChange('processingDate', e.target.value)} />
                 </div>
               </div>
@@ -337,7 +388,7 @@ const handlePrint = () => {
               {/* Row 4 */}
               <div className="field-row-POD">
                 <div className="field-group-POD">
-                  <label>Order Stage</label>
+                  <label><FaLayerGroup style={{ marginRight: '6px' }} />Order Stage</label>
                   <select value={editedRow.OrderStage} onChange={e => handleFieldChange('OrderStage', e.target.value)}>
                     {stages.filter(s => s !== 'All').map(stage => (
                       <option key={stage} value={stage}>{stage}</option>
@@ -345,7 +396,7 @@ const handlePrint = () => {
                   </select>
                 </div>
                 <div className="field-group-POD">
-                  <label>Payment Type</label>
+                  <label><FaMoneyBill style={{ marginRight: '6px' }} />Payment Type</label>
                   <select value={editedRow.paymentType} onChange={e => handleFieldChange('paymentType', e.target.value)}>
                     {paymentTypes.map(type => (
                       <option key={type} value={type}>{type}</option>
@@ -357,7 +408,7 @@ const handlePrint = () => {
               {/* Row 5 */}
               <div className="field-row-POD">
                 <div className="field-group-POD">
-                  <label>Payment Status</label>
+                  <label><FaReceipt style={{ marginRight: '6px' }} />Payment Status</label>
                   <select value={editedRow.paymentStatus} onChange={e => handleFieldChange('paymentStatus', e.target.value)}>
                     {paymentStatuses.map(status => (
                       <option key={status} value={status}>{status}</option>
@@ -365,7 +416,7 @@ const handlePrint = () => {
                   </select>
                 </div>
                 <div className="field-group-POD">
-                  <label>Address</label>
+                  <label><FaMapMarkerAlt style={{ marginRight: '6px' }} />Address</label>
                   <textarea rows="2" value={editedRow.address} onChange={e => handleFieldChange('address', e.target.value)} />
                 </div>
               </div>
@@ -381,7 +432,7 @@ const handlePrint = () => {
         </div>
       )}
 
-  
+
 
       {deleteCandidate && (
         <div className="delete-popup-overlay-POD">
