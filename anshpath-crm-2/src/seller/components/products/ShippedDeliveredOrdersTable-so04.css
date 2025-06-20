@@ -1,0 +1,1172 @@
+
+
+.shipped-delivered-orders-container-so04 {
+  width: 100%;
+  max-width: 1150px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(134, 50, 50, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  position: relative;
+ 
+}
+
+/* Header */
+.sd-header-so04{
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: flex-start;
+ 
+  gap: 15px;
+  margin-bottom:12px;
+
+}
+
+.sd-title-so04 {
+  font-size: 35px;
+  font-weight: 700;
+  color: #3f37c9;
+  margin-bottom: 10px;
+  position: relative;
+  margin-left: 30%;
+  
+
+}
+.dark-mode-HDW-01 .sd-title-so04 {
+  color: #3f37c9;
+}
+
+.dark-mode-HDW-01 .sd-search-input-so04:focus {
+  background-color:linear-gradient(90deg, var(--primary-color-LST-041), var(--accent-color-LST-041));
+
+  border: 1px solid #3f37c9;
+  border-color: #0d6efd;
+}
+
+
+.sd-search-input-so04 {
+  width:80%;
+ position: relative;
+ align-items: flex-start;
+
+}
+
+
+.sd-search-input-so04:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+/* Filter Dropdown */
+.sd-filter-dropdown-so04 {
+  position: relative;
+   /*  */
+}
+.sd-filter-dropdown-so04 button:hover {
+  background-color: #0056b3;
+}
+/*filter dropdown*/
+.sd-filter-dropdown-so04 button {
+  background-color: #5a3d8a;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Filter List */
+.sd-filter-list-so04 {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 10;
+  width: 180px;
+ 
+}
+
+.sd-date-input-so04 {
+  width: 200px;
+  min-width: 160px;
+  max-width: 240px;
+  height: 36px;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.sd-search-input-so04 {
+  flex: 1 1 180px;          /* ⬅ smaller width */
+  padding: 4px 10px;        /* ⬅ smaller padding */
+  font-size: 16px;          /* ⬅ smaller text */
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+  
+}
+
+.sd-search-input-so04:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+.sd-filter-item-so04 {
+ 
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+
+.sd-filter-item-so04:hover,
+.sd-filter-item-so04.active-so04 {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Table */
+.sd-table-so04 {
+ 
+  border-collapse: collapse;
+  display: block;                /* ✅ Required for scroll */
+  overflow-x: auto; 
+  justify-content: center; 
+ 
+          /* ✅ Scroll on mobile */
+}
+
+.sd-table-so04 th,
+.sd-table-so04 td {
+  padding: 10px;
+  font-size: 16px;
+  
+  text-align: center;
+  white-space: nowrap;
+
+  
+   
+         /* Optional: prevent wrapping */
+}
+
+
+
+.sd-table-so04 th {
+  background-color:rgb(68, 68, 183);
+  color: #fff;
+  padding-right: 90px;
+font-size: 20px;
+
+ 
+}
+.sd-table-so04 tbody tr:hover {
+  background-color:rgb(209, 203, 203); /* Light blue highlight */
+  transition: background-color 1s ease;
+  cursor: pointer;
+}
+
+.sd-table-so04 tbody tr:hover .status-shipped-so04,
+.sd-table-so04 tbody tr:hover .status-out-for-delivery-so04,
+.sd-table-so04 tbody tr:hover .status-delivered-so04,
+.sd-table-so04 tbody tr:hover .status-cancelled-so04 {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* Status Badges */
+.sd-badge-so04 {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Pagination */
+.sd-pagination-so04 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 30px;
+  flex-wrap: wrap;                 /* ✅ Makes it wrap nicely on mobile */
+}
+
+.sd-pagination-btn-so04 {
+  padding: 8px 14px;
+  min-width: 40px;                 /* ✅ Prevents button shrinkage */
+  text-align: center;
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #0d6efd;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sd-pagination-btn-so04:hover,
+.sd-pagination-btn-so04.active-so04 {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Action Buttons */
+.sd-action-btn-so04 {
+  background: transparent;
+  border: none;
+  color: #0d6efd;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.sd-action-btn-so04:hover {
+  color: #0056b3;
+}
+
+/* Modal */
+.sd-modal-so04 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  z-index: 1001;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+  padding: 20px;
+   border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Modal Backdrop */
+.modal-backdrop-s04 {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+
+}
+
+/* Modal Header */
+.sd-modal-header-so04 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sd-modal-title-so04 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sd-modal-close-btn-so04 {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Date Filter Horizontal Alignment */
+.sd-date-wrapper-so04 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  margin-right: 12px;
+  flex-wrap: nowrap;
+}
+
+.sd-date-label-so04 {
+  white-space: nowrap;
+ margin-top: 12px;
+  font-weight: 600;
+  color:  #3f37c9;;
+  
+}
+
+.sd-date-input-so04 {
+  width: 160px;
+  min-width: 140px;
+  height: 36px;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .sd-search-filter-so04 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 0 16px;
+    margin-bottom: 30px;
+  }
+
+  .sd-header-so04 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+
+  .sd-search-wrapper-so04,
+  .sd-date-wrapper-so04,
+  .sd-filter-dropdown-so04,
+  .btn-primaryexcel-s04,
+  .btn-secondary-s04,
+  .sd-filter-dropdown-so04 > button {
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .sd-search-label-so04,
+  .sd-date-label-so04 {
+    font-weight: 600;
+    font-size: 14px;
+    color: #3f37c9;
+    align-self: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+
+  .sd-search-input-so04,
+  .sd-date-input-so04 {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 6px;
+    padding-left: 32px;
+  }
+
+  /* BUTTON BASE STYLES */
+  .sd-filter-dropdown-so04 > button {
+    justify-content: center;
+    align-items: center !important;
+    text-align: center;
+  } 
+
+  .btn-secondary-s04 {
+    justify-content: flex-start; /* Print button label left aligned */
+    text-align: left;
+    padding-left: 16px;
+  }
+
+  .btn-primaryexcel-s04,
+  .btn-secondary-s04,
+  .sd-filter-dropdown-so04 > button {
+    display: flex;
+    width: 100%;
+
+    font-size: 16px;
+    border-radius: 8px;
+    gap: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+    animation: fadeInUp-s04 0.4s ease-in-out;
+  }
+
+  .btn-primaryexcel-s04{
+    align-items: center !important;
+    padding-bottom: 13px !important;
+    
+  }
+  .btn-primaryexcel-s04 {
+    background-color: green;
+    color: white;
+  }
+
+  .btn-secondary-s04 {
+    background-color: blue;
+    color: white;
+    
+  }
+ 
+
+  .sd-filter-dropdown-so04 > button {
+    background-color: #5a3d8a;
+    color: white;
+  }
+
+  /* Hover animations */
+  .btn-primaryexcel-s04:hover,
+  .btn-secondary-s04:hover,
+  .sd-filter-dropdown-so04 > button:hover {
+    transform: scale(1.06);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Icon animations */
+  .excelicon-s04,
+  .printicon-s04,
+  .filtericons-04 {
+    font-size: 18px;
+    margin-right: 6px;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primaryexcel-s04:hover .excelicon-s04,
+  .btn-secondary-s04:hover .printicon-s04,
+  .sd-filter-dropdown-so04 > button:hover .filtericons-04 {
+    transform: rotate(-10deg) scale(1.2);
+  }
+
+  /* Search icon */
+  .searchicon-s04 {
+    position: absolute;
+    left: 12px !important;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 2;
+    color: #999;
+  }
+
+  .sd-search-wrapper-so04 {
+    position: relative;
+  }
+
+  /* Entrance animation */
+  @keyframes fadeInUp-s04 {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+@media (max-width: 768px) {
+  .btn-primaryexcel-s04 {
+    animation: pulse 2.5s infinite;
+  }
+  .btn-secondary-s04{
+    animation: pulse 2.5s infinite;
+  }
+
+}
+/*status*/
+.status-shipped-so04 {
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(0, 121, 107, 0.2);
+  display: inline-block;
+}
+
+
+.status-out-for-delivery-so04 {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(133, 100, 4, 0.2);
+  display: inline-block;
+}
+
+.status-delivered-so04 {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(21, 87, 36, 0.2);
+  display: inline-block;
+}
+
+.status-cancelled-so04 {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(114, 28, 36, 0.2);
+  display: inline-block;
+}
+
+/* Buttons */
+.btn-success-md-s04 {
+  background-color:#3f37c9;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success-md-s04:hover {
+  background-color: blue;
+}
+
+.btn-secondary-md-s04 {
+  background-color:red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary-md-s04:hover {
+  background-color: #c82333;
+}
+
+/* Status Styles */
+.status-shipped-so04 {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-out-for-delivery-so04 {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-delivered-so04 {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-cancelled-so04 {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+/* ----------- FORM LAYOUT: 2 Columns ----------- */
+.sd-modal-body-so04 form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  padding: 16px;
+}
+
+/* Individual Form Group */
+.form-group-so04 {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Label Styling */
+.form-label-so04 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color:  #3f37c9;
+
+
+
+  
+}
+
+/* Input Styling */
+.form-control-so04 {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+/* Selects also follow same style */
+.form-control-so04:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1);
+}
+
+
+.sd-modal-so04 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+.searchicon-s04 {
+  position: absolute;
+  top: 55%;
+  left: 30px;
+  transform: translateY(-50%);
+  color:red;
+  font-size: 16px;
+  pointer-events: none;
+}
+.excelicon-s04 {
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 15px;
+  vertical-align: middle;
+  color: #ffffff;
+}
+.printicon-s04 {
+  margin-right: 5px;
+  font-size: 15px;
+  vertical-align: middle;
+  color: #ffffff;
+}
+.filtericons-04 {
+  margin-right: 5px;
+  font-size: 15px;
+  vertical-align: middle;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .sd-modal-body-so04 form {
+    grid-template-columns: 1fr; /* stack fields */
+  }
+
+  .sd-modal-so04 {
+    width: 95%;
+  }
+}
+
+
+.sd-modal-body-so04 {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+
+.btn-outline-primary-s04 {
+  background-color: #fff;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary-s04s:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+/* ================== CONTAINER ================== */
+.dark-mode-HDW-01 .shipped-delivered-orders-container-so04 {
+margin-left: 0;
+  background-color: #2b2b2b
+ 
+}
+
+.sd-table-so04 {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.dark-mode-HDW-01 .sd-table-so04 tbody tr:hover {
+  background-color:grey;
+  
+}
+.dark-mode-HDW-01 .sd-search-wrapper-so04 {
+  position: relative;
+}
+
+.dark-mode-HDW-01  .searchicon-s04 {
+  position: absolute;
+  top: 60%;
+  left: 30px;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.sd-search-input-so04 {
+  padding-left: 32px !important; /* Ensure space for icon */
+}
+
+
+/* ================== HEADER ================== */
+.dark-mode-HDW-01 .sd-header-so04 {
+  border-bottom: 1px solid #444;
+}
+.dark-mode-HDW-01 .sd-search-filter-so04 {
+display: flex;
+  gap: 10px;
+ 
+}
+.dark-mode-HDW-01 .sd-title-so04 {
+  color:  #4361EE;
+
+  
+  
+}
+
+/* ================== SEARCH + FILTER ================== */
+.dark-mode-HDW-01 .sd-search-filter-so04 {
+  color:  #0d6efd;
+  
+}
+
+.dark-mode-HDW-01 .sd-search-input-so04 {
+  background-color: #0d6efd;
+  border: 1px solid #444;
+}
+
+/* Filter Dropdown */
+.dark-mode-HDW-01 .sd-filter-dropdown-so04 button {
+  background-color: #3f37c9;
+
+  
+  border: 1px solid #444;
+}
+
+/* Filter List Box */
+.dark-mode-HDW-01 .sd-filter-list-so04 {
+  background-color: #1f1f1f;
+  border: 1px solid #0d6efd;
+}
+
+/* Filter List Item */
+.dark-mode-HDW-01 .sd-filter-item-so04 {
+  color: #e0e0e0;
+}
+
+.dark-mode-HDW-01 .sd-filter-item-so04.active-so04 {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* ================== TABLE ================== */
+.dark-mode-HDW-01 .sd-table-so04 {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-mode-HDW-01 .sd-table-so04 th {
+  background-color: #3f37c9;
+  color: #e0e0e0;
+  
+}
+
+.dark-mode-HDW-01 .sd-table-so04 td {
+  border-color: #e0e0e0;
+  color:white
+}
+
+/* ================== MODAL ================== */
+.dark-mode-HDW-01 .sd-modal-so04 {
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #2b2b2b;
+  
+  border: 1px solid #444;
+    position: fixed;
+ 
+  transform: translate(-50%, -50%);
+  width: 100%;
+
+  
+  
+   
+
+}
+.label-icon-so04 {
+  margin-right: 6px;
+  color: #0d6efd ; /* You can match theme color here */
+  vertical-align: middle;
+}
+
+
+.dark-mode-HDW-01 .sd-modal-title-so04 {
+  color: #e0e0e0;
+}
+.dark-mode-HDW-01 .form-control-so04 {
+  background-color:  #555;
+  color: #fff;
+  border: 1px solid #444;
+}
+.sd-table-so04 {
+  border-collapse: collapse;
+}
+
+.sd-table-so04 th,
+.sd-table-so04 td {
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dark-mode-HDW-01 .sd-modal-close-btn-so04 {
+  color: #ccc;
+}
+
+/* ================== PAGINATION ================== */
+.dark-mode-HDW-01 .sd-pagination-so04 {
+  color:  #3f37c9;
+}
+
+.dark-mode-HDW-01 .sd-pagination-btn-so04 {
+  background-color:  #555;
+  color: #e0e0e0;
+  border: 1px solid  #3f37c9;
+}
+
+.dark-mode-HDW-01 .sd-pagination-btn-so04.active-so04 {
+  background-color: #3f37c9;
+  color: #fff;
+}
+.dark-mode-HDW-01 .sd-search-label-so04 {
+  font-weight: 600;
+  white-space: nowrap;
+  color:  white;
+  margin-left: 4px;
+  margin-top: 12px;
+}
+/* ================== ACTION BUTTONS ================== */
+.dark-mode-HDW-01 .sd-action-btn-so04 {
+  color: #3f37c9;
+}
+
+.dark-mode-HDW-01 .sd-action-btn-so04:hover {
+  color: #3f37c9;
+}
+
+/* ================== FORM INPUTS / SELECT ================== */
+.dark-mode-HDW-01 .form-control,
+.dark-mode-HDW-01 .form-select {
+  
+  color: black;
+  border: 1px solid #444;
+ 
+}
+
+/* ================== BUTTONS ================== */
+.dark-mode-HDW-01 .btn-success-md-s04 {
+  background-color: #4caf50;
+  color: white;
+  align-items: center;
+}
+
+.dark-mode-HDW-01 .btn-secondary-s04 {
+
+  color: white;
+  
+  align-items: center;
+  
+}
+
+
+.dark-mode-HDW-01 .btn-outline-primary-s04 {
+  background-color: transparent;
+ 
+}
+
+.dark-mode-HDW-01 .btn-outline-primary-s04:hover {
+  background-color: #90caf9;
+  color: #1e1e1e;
+}
+
+/* ================== STATUS TAGS ================== */
+.dark-mode-HDW-01 .status-shipped-so04 {
+  background-color: #2e7d32;
+  color: #c8e6c9;
+}
+
+.dark-mode-HDW-01 .status-out-for-delivery-so04 {
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+.dark-mode-HDW-01 .status-delivered-so04 {
+  background-color: #0288d1;
+  color: #e1f5fe;
+}
+
+.dark-mode-HDW-01 .status-cancelled-so04 {
+  background-color: #c62828;
+  color: #ffcdd2;
+}
+
+
+.th-icon-so04 {
+  margin-right: 1px;
+  vertical-align: middle;
+  font-size: 12px;
+  color: inherit;
+}
+.sd-table-so04 thead th {
+  position: sticky;
+  top: 0;
+  background: #3f37c9; /* or use your theme */
+  z-index: 2;
+}
+/* Ensure filter/search container lays out items in a row with wrap support */
+.sd-search-filter-so04 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  margin-top: 10px;
+
+  
+}
+
+/* Consistent height & width for input fields */
+.sd-search-input-so04,
+.sd-date-input-so04 {
+  height: 36px;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+/* Fix width of date inputs */
+.sd-date-input-so04 {
+  width: 160px;
+}
+
+/* Button adjustments */
+.btn-primaryexcel-s04{
+  height: 36px;
+  padding: 5px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center !important;
+  background-color: green;
+  color: white;
+  margin-bottom: 5px;
+  
+}
+.btn-secondary-s04 {
+  height: 36px;
+  /* padding: 3px 12px; */
+  font-size: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  color: white;
+   margin-bottom: 5px;
+
+}
+
+/* Filter dropdown alignment */
+.sd-filter-dropdown-so04 > button {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.sd-search-wrapper-so04 {
+  position: relative;
+}
+
+
+
+.sd-search-input-so04 {
+  padding-left: 32px !important; /* Ensure space for icon */
+ margin-bottom: 5px;
+}
+/* Mobile Form Field Alignment Fix */
+@media (max-width: 768px) {
+  .sd-search-filter-so04 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 0 12px;
+    width: 60%;
+  }
+
+  .sd-search-wrapper-so04,
+  .sd-date-wrapper-so04,
+  .sd-filter-dropdown-so04,
+  .btn-primaryexcel-s04,
+  .btn-secondary-s04,
+  .sd-filter-dropdown-so04 > button {
+    
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+   
+    gap: 4px;
+    margin: 0 auto;
+  }
+
+ .sd-search-label-so04,
+.sd-date-label-so04 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #3f37c9;;
+  margin: 0 !important;       /* ✅ Removes any margin-left */
+  align-self: flex-start;     /* ✅ Ensures label aligns to input */
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+  .sd-date-label-so04 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #3f37c9;
+  }
+
+  .sd-search-input-so04,
+  .sd-date-input-so04 {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+
+  /* Search icon fix */
+  .sd-search-wrapper-so04 {
+    position: relative;
+  }
+
+  
+ .searchicon-s04 {
+    left: 12px !important;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 2;
+    color: #999;
+  }
+  
+
+  
+  
+}
+
+
+
+.dark-mode-HDW-01 .btn-secondary-md-s04 {
+    background-color:red;
+    color: white;
+}
+.dark-mode-HDW-01 .sd-search-input-so04,
+  .sd-date-input-so04,
+  .btn-primary-s04,
+  .btn-secondary-s04,
+  .sd-filter-dropdown-so04 > button {
+   margin-top: 10px;
+   
+
+}
+  
+
+.sd-search-wrapper-so04 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  flex-wrap: nowrap;
+}
+
+.sd-search-label-so04 {
+  font-weight: 600;
+ 
+  white-space: nowrap;
+  color:  #3f37c9;;
+margin-left: 5px;
+margin-bottom: 2px;
+}
+
+.sd-search-input-container-so04 {
+  position: relative;
+  flex: 1;
+}
+
+.sd-search-input-so04 {
+  padding-left: 32px; /* space for icon */
+  
+  font-size: 16px;
+  width: 100%;
+}
+.dark-mode-HDW-01 .sd-date-label-so04 {
+    font-weight: 600;
+    font-size: 16px;
+    color: white
+  }
+  .sd-table-so04 th {
+  background-color: rgb(68, 68, 183);
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center; /* Ensure center alignment */
+}
+.dark-mode-HDW-01 .sd-table-so04 th {
+  background-color: #3f37c9;
+  color: #e0e0e0;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center; /* Also enforce here */
+}
+.btn-primaryexcel-s04:hover {
+  background-color: #218838; /* darker green */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-s04:hover {
+  background-color: #0038a0; /* deeper blue */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.dark-mode-HDW-01 .btn-primaryexcel-s04:hover {
+  background-color: #1db954; /* green-tinted */
+  color: #fff;
+}
+
+.dark-mode-HDW-01 .btn-secondary-s04:hover {
+  background-color: #0050ff;
+  color: #fff;
+}
+.sd-modal-body-so04 {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
