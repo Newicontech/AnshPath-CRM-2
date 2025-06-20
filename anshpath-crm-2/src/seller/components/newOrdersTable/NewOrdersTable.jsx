@@ -138,19 +138,20 @@ const handleUpdate = () => {
       theme: 'colored',
     };
 
-    
+    // ✅ Safe update (reuse toast if it's active)
     if (toast.isActive(TOAST_ID)) {
-      toast.dismiss(TOAST_ID); 
+      toast.update(TOAST_ID, {
+        render: 'Order Updated Successfully',
+        type: toast.TYPE.SUCCESS,
+        ...toastOptions,
+      });
+    } else {
+      toast.success('Order Updated Successfully', toastOptions);
     }
-
-   
-    toast.success('Order Updated Successfully', toastOptions);
-
   } catch (error) {
     console.error('Error in handleUpdate:', error);
   }
 };
-
 
 
   const handleDelete = (id) => {
@@ -189,11 +190,11 @@ const handleExportPDF = async () => {
   const getCSSVar = (name) =>
     getComputedStyle(document.body).getPropertyValue(name).trim();
 
-  const bgColor = getCSSVar('--bg-light-sst');
-  const textColor = getCSSVar('--text-color-sst');
-  const primaryColor = getCSSVar('--primary-color-sst');
-  const mutedBgColor = getCSSVar('--bg-muted-sst');
-  const borderColor = getCSSVar('--border-color-sst');
+  const bgColor = getCSSVar('--bg-light-not');
+  const textColor = getCSSVar('--text-color-not');
+  const primaryColor = getCSSVar('--primary-color-not');
+  const mutedBgColor = getCSSVar('--bg-muted-not');
+  const borderColor = getCSSVar('--border-color-not');
 
   const cloned = input.cloneNode(true);
   cloned.style.width = input.scrollWidth + 'px';
@@ -201,6 +202,7 @@ const handleExportPDF = async () => {
   cloned.style.left = '-9999px';
   cloned.style.top = '0';
   cloned.style.zIndex = '-1';
+  
 
   cloned.querySelectorAll('tr').forEach(row => {
     if (row.children.length > 0) {
@@ -261,7 +263,7 @@ const handleExportPDF = async () => {
   const scaleFactor = pdfWidth / 2500;
   const titleFontSize = Math.min(74, 68 * scaleFactor);
   const subtitleFontSize = Math.min(46, 42 * scaleFactor);
-  const rightFontSize = Math.min(54, 38 * scaleFactor);
+  const rightFontSize = Math.min(54, 48 * scaleFactor);
   const footerFontSize = 50;
   const titlePadding = 20;
   const subtitlePadding = 40;
@@ -387,8 +389,8 @@ const handleExportCSV = () => {
       <div className="container-fluid new-orders-container" style={{padding:'0%'}}>
       <ToastContainer />
       <div className="card shadow-sm border-0 rounded-5">
-        <div className="card-body-SST">
-         <div className="d-flex flex-column justify-content-center align-items-center text-center mb-4 title-heading-SST">
+        <div className="card-body-NOT">
+         <div className="d-flex flex-column justify-content-center align-items-center text-center mb-4 title-heading-NOT">
             <h4 className="mt-3 mb-3" style={{ fontSize: '40px'}}>
               <FaBoxOpen className="text-primary me-2" /> New Orders
             </h4>
@@ -396,14 +398,14 @@ const handleExportCSV = () => {
 
             <div className="d-flex flex-column flex-md-row gap-4 mb-3 custom-input-wrapper">
                   <div className="d-flex flex-column flex-grow-1">
-                    <label className="custom-label-SST">Search</label>
-                    <div className="input-group custom-input-group-SST">
-                      <span className="input-group-text custom-icon-SST">
+                    <label className="custom-label-NOT">Search</label>
+                    <div className="input-group custom-input-group-NOT">
+                      <span className="input-group-text custom-icon-NOT">
                         <FaSearch />
                       </span>
                       <input
                         type="text"
-                        className="form-control custom-input-SST"
+                        className="form-control custom-input-NOT"
                         placeholder="Search by Order ID, Customer, Status"
                         value={searchTerm}
                         onChange={handleSearch}
@@ -411,26 +413,26 @@ const handleExportCSV = () => {
                     </div>
             </div>
             <div className="d-flex flex-column">
-              <label className="custom-label-SST">Start Date</label>
+              <label className="custom-label-NOT">Start Date</label>
               <input
                 type="date"
-                className="form-control custom-input-SST"
+                className="form-control custom-input-NOT"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
             </div>
             <div className="d-flex flex-column">
-              <label className="custom-label-SST">End Date</label>
+              <label className="custom-label-NOT">End Date</label>
               <input
                 type="date"
-                className="form-control custom-input-SST"
+                className="form-control custom-input-NOT"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
               />
             </div>
        
             <button
-                className="btn btn-primary filter-button-SST"
+                className="btn btn-primary filter-button-NOT"
                 onClick={() => applyFilters(searchTerm, startDate, endDate)}
                   >
                   Filter
@@ -439,7 +441,7 @@ const handleExportCSV = () => {
       
           <div className="table-responsive custom-scroll">
             <div id="orders-table-wrapper">
-              <table className="table table-bordered align-middle orders-table-SST">
+              <table className="table table-bordered align-middle orders-table-NOT">
                 <thead className="table-dark">
                   <tr>
                     {renderSortableHeader('Order ID', 'orderId')}
@@ -489,7 +491,7 @@ const handleExportCSV = () => {
                         </span>
                       </td>
                       <td>
-                        <div className="mobile-action-icons-SST d-flex d-md-none">
+                        <div className="mobile-action-icons-NOT d-flex d-md-none">
                             <button
                               className="btn btn-sm btn-outline-primary"
                               title="Edit"
@@ -535,23 +537,23 @@ const handleExportCSV = () => {
               </table>
             </div>
           </div>
-          <div className="table-bottom-controls-SST">
+          <div className="table-bottom-controls-NOT">
             <div className="custom-pagination-wrapper">
               <button
-                className="custom-pagination-btn-SST"
+                className="custom-pagination-btn-NOT"
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
               >
                 ◀ Prev
               </button>
 
-              <button className="custom-pagination-btn-SST active-SST">
+              <button className="custom-pagination-btn-NOT active-NOT">
                 {currentPage}
               </button>
 
               {totalPages > 1 && (
                 <button
-                  className={`custom-pagination-btn-SST ${currentPage === totalPages ? 'active' : ''}`}
+                  className={`custom-pagination-btn-NOT ${currentPage === totalPages ? 'active' : ''}`}
                   onClick={() => setCurrentPage(totalPages)}
                 >
                   {totalPages}
@@ -559,20 +561,20 @@ const handleExportCSV = () => {
               )}
 
               <button
-                className="btn-outline-primary custom-pagination-btn-SST"
+                className="btn-outline-primary custom-pagination-btn-NOT"
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
               >
                 Next ▶
               </button>
             </div>
-            <div className="export-button-group-SST">
-              <div className="export-button-box-SST">
-                <button className="custom-export-btn-SST pdf-btn-SST" onClick={handleExportPDF}>
+            <div className="export-button-group-NOT">
+              <div className="export-button-box-NOT">
+                <button className="custom-export-btn-NOT pdf-btn-NOT" onClick={handleExportPDF}>
                   <FaPrint className="me-2" />
                   PRINT
                 </button>
-                <button className="custom-export-btn-SST csv-btn-SST" onClick={handleExportCSV}>
+                <button className="custom-export-btn-NOT csv-btn-NOT" onClick={handleExportCSV}>
                   <FaFileCsv className="me-2" />
                   EXCEL
                 </button>
@@ -586,7 +588,7 @@ const handleExportCSV = () => {
         <>
           <div className="modal show fade d-block" tabIndex="1">
               <div className="modal-dialog modal-dialog-centered modal-lg">
-              <div className="modal-content custom-modal-square-SST">
+              <div className="modal-content custom-modal-square-NOT">
                   <div className="modal-header">
                     <h5 className="modal-title">
                       <FaEdit className="me-2 text-primary" style={{ fontSize: '25px' }}/> Update Order - {selectedOrder.orderId}
@@ -594,7 +596,7 @@ const handleExportCSV = () => {
                     <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
                   </div>
 
-                  <div className="modal-body-SST row g-3 ">
+                  <div className="modal-body-NOT row g-3 ">
                     
                       <div className="row-md-6">
                         <label className="form-label d-flex align-items-center">
@@ -602,7 +604,7 @@ const handleExportCSV = () => {
                           <span className="fw-semibold">Order Status</span>
                         </label>
                         <select
-                          className="form-select-SST form-select-sm"
+                          className="form-select-NOT form-select-sm"
                           value={selectedOrder.orderStatus}
                           onChange={e => setSelectedOrder({ ...selectedOrder, orderStatus: e.target.value })}
                         >
@@ -618,7 +620,7 @@ const handleExportCSV = () => {
                           <span className="fw-semibold">Payment Status</span>
                         </label>
                         <select
-                          className="form-select-SST form-select-sm form-select-2-SST"
+                          className="form-select-NOT form-select-sm form-select-2-NOT"
                           value={selectedOrder.paymentStatus}
                           onChange={e => setSelectedOrder({ ...selectedOrder, paymentStatus: e.target.value })}
                         >
@@ -636,7 +638,7 @@ const handleExportCSV = () => {
                         </label>
                         <input
                           type="text"
-                          className="form-control-SST form-control-sm tracking-box-SST"
+                          className="form-control-NOT form-control-sm tracking-box-NOT"
                           value={selectedOrder.trackingId}
                           onChange={e => setSelectedOrder({ ...selectedOrder, trackingId: e.target.value })}
                         />
@@ -665,3 +667,4 @@ const handleExportCSV = () => {
 };
 
 export default NewOrdersTable;
+
