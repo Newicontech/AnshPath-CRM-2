@@ -317,7 +317,7 @@ const SellerDashboard = () => {
                   <Link to="#">Categories</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">New Orders</Link>
+                  <Link to="/newOrders">New Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Processing</Link>
@@ -369,7 +369,7 @@ const SellerDashboard = () => {
                   <Link to="#">New Requests</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Scheduled</Link>
+                  <Link to="/scheduled/services">Scheduled</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">History</Link>
