@@ -56,7 +56,7 @@
 .filters-container-ph > div {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 160px;
   flex-shrink: 0;
 }
 
@@ -333,6 +333,28 @@
   cursor: not-allowed;
   opacity: 0.6;
 }
+.page-number-btn-ph {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #000;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.page-number-btn-ph:hover {
+  background-color: #e6e6e6;
+}
+
+.active-page-ph {
+  background-color: #4361ee;
+  color: white;
+  border-color: #4361ee;
+}
+
 
 /* Buttons with -ph suffix (extend your existing .btn styles) */
 .btn-ph {

@@ -269,7 +269,7 @@ const ProductHistoryTable = () => {
   const [viewModalData, setViewModalData] = useState(null);
   const [editModalData, setEditModalData] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(6);
   const [filters, setFilters] = useState({
     category: "All",
     productStatus: "All",
@@ -677,38 +677,25 @@ return (
     )}
 
     {/* Pagination */}
-    <div className="pagination-controls-ph">
-      <div className="entries-selector-ph">
-        <label>Show&nbsp;</label>
-        <select
-          value={rowsPerPage}
-          onChange={(e) => {
-            setRowsPerPage(Number(e.target.value));
-            setCurrentPage(1);
-          }}
-        >
-          <option value={10}>10</option>
-          <option value={25}>25</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
-        <label>&nbsp;entries</label>
-      </div>
+    {/* Pagination */}
+<div className="pagination-controls-ph d-flex justify-content-center align-items-center mt-4">
+  {/* Numbered Pagination */}
+  <div className="numbered-pagination-ph d-flex flex-wrap gap-2">
+    {Array.from({ length: totalPages }, (_, index) => (
+      <button
+        key={index + 1}
+        className={`page-number-btn-ph ${
+          currentPage === index + 1 ? "active-page-ph" : ""
+        }`}
+        onClick={() => setCurrentPage(index + 1)}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+</div>
 
-      <div className="pagination-buttons-ph">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage(currentPage - 1)}
-        >
-          Prev
-        </button>
-        <span> Page {currentPage} of {totalPages} </span>
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage(currentPage + 1)}
-        >
-          Next
-        </button>
+
         <ProductViewModal
           viewModalData={viewModalData}
           onClose={() => setViewModalData(null)}
@@ -723,8 +710,6 @@ return (
           />
         )}
       </div>
-    </div>
-  </div>
 );
 }
 export default ProductHistoryTable;
