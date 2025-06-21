@@ -1,4 +1,4 @@
-// Enhanced NewOrdersTable.jsx
+
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaEdit, FaTrash, FaBoxOpen, FaPrint , FaFileCsv, FaSearch, FaClipboardList, FaMoneyCheckAlt, FaTruck, FaSave, FaTimes  } from 'react-icons/fa';
@@ -99,7 +99,7 @@ const NewOrdersTable = () => {
     }
 
     setFilteredOrders(filtered);
-    setCurrentPage(1); // Reset to first page on filter
+    setCurrentPage(1); 
   };
 
   const handleDateChange = (type, value) => {
@@ -138,7 +138,7 @@ const handleUpdate = () => {
       theme: 'colored',
     };
 
-    // ✅ Safe update (reuse toast if it's active)
+ 
     if (toast.isActive(TOAST_ID)) {
       toast.update(TOAST_ID, {
         render: 'Order Updated Successfully',
@@ -185,8 +185,10 @@ const handleExportPDF = async () => {
   const input = document.getElementById('orders-table-wrapper');
   if (!input) return;
 
+
   const isDarkMode = document.body.classList.contains('dark-mode-HDW-01');
 
+ 
   const getCSSVar = (name) =>
     getComputedStyle(document.body).getPropertyValue(name).trim();
 
@@ -196,19 +198,16 @@ const handleExportPDF = async () => {
   const mutedBgColor = getCSSVar('--bg-muted-not');
   const borderColor = getCSSVar('--border-color-not');
 
+ 
   const cloned = input.cloneNode(true);
   cloned.style.width = input.scrollWidth + 'px';
   cloned.style.position = 'absolute';
   cloned.style.left = '-9999px';
   cloned.style.top = '0';
   cloned.style.zIndex = '-1';
-  
 
-  cloned.querySelectorAll('tr').forEach(row => {
-    if (row.children.length > 0) {
-      row.removeChild(row.lastElementChild);
-    }
-  });
+
+  cloned.querySelectorAll('.action-column, td:last-child, th:last-child').forEach(el => el.remove());
 
   cloned.style.backgroundColor = bgColor;
   cloned.style.color = textColor;
@@ -229,7 +228,6 @@ const handleExportPDF = async () => {
     badge.style.backgroundColor ||= '#444';
     badge.style.color = '#fff';
   });
-
   document.body.appendChild(cloned);
 
   const canvas = await html2canvas(cloned, {
@@ -241,6 +239,7 @@ const handleExportPDF = async () => {
     windowWidth: cloned.scrollWidth
   });
 
+ 
   document.body.removeChild(cloned);
 
   const imgData = canvas.toDataURL('image/png');
@@ -254,12 +253,12 @@ const handleExportPDF = async () => {
     format: [pdfWidth, pdfHeight]
   });
 
+  
   pdf.setFillColor(bgColor);
   pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
 
   const todayDate = new Date().toLocaleDateString('en-GB');
 
-  // Font sizes based on scale
   const scaleFactor = pdfWidth / 2500;
   const titleFontSize = Math.min(74, 68 * scaleFactor);
   const subtitleFontSize = Math.min(46, 42 * scaleFactor);
@@ -269,39 +268,36 @@ const handleExportPDF = async () => {
   const subtitlePadding = 40;
   const rightPadding = 100;
 
-
-  // === LEFT SIDE (AnshPath) ===
   pdf.setFont('helvetica', 'bold');
   pdf.setFontSize(titleFontSize);
   pdf.setTextColor(primaryColor);
   pdf.text('AnshPath', 60, 50 + titlePadding);
 
-  // === LEFT SIDE (Subtitle) ===
   pdf.setFont('helvetica', 'normal');
   pdf.setFontSize(subtitleFontSize);
   pdf.setTextColor(textColor);
   pdf.text('Technologies Private Limited', 40, 80 + subtitlePadding);
 
-  // === RIGHT SIDE (New Orders Title) ===
   pdf.setFont('helvetica', 'bold');
   pdf.setFontSize(rightFontSize);
-  const rightTitle = 'New Orders Table';
+  const rightTitle = 'Scheduled Services Report';
   const rightTitleWidth = pdf.getTextWidth(rightTitle);
-  pdf.text(rightTitle, pdfWidth - rightTitleWidth - 40, rightPadding); // aligned to right
+  pdf.text(rightTitle, pdfWidth - rightTitleWidth - 40, rightPadding);
 
-  // === TABLE IMAGE ===
-  pdf.addImage(imgData, 'PNG', 0, headerHeight, canvas.width, canvas.height);
 
-  // === FOOTER DATE ===
+  const renderedHeight = (canvas.height * pdfWidth) / canvas.width;
+  pdf.addImage(imgData, 'PNG', 0, headerHeight, pdfWidth, renderedHeight);
+
   pdf.setFontSize(footerFontSize);
   pdf.setTextColor('black');
   const dateText = `Date: ${todayDate}`;
   const dateWidth = pdf.getTextWidth(dateText);
   pdf.text(dateText, pdfWidth - dateWidth - 40, pdfHeight - 20);
 
-  // Save file
-  pdf.save('new_orders_report.pdf');
+
+  pdf.save('scheduled_services_report.pdf');
 };
+
 
 
 
@@ -331,10 +327,10 @@ const handleExportCSV = () => {
   }));
 
   const csv = [
-    Object.keys(rows[0]).join(','), // Header
+    Object.keys(rows[0]).join(','), 
     ...rows.map(row =>
       Object.values(row)
-        .map(val => `"${String(val).replace(/"/g, '""')}"`) // Escape quotes
+        .map(val => `"${String(val).replace(/"/g, '""')}"`)
         .join(',')
     )
   ].join('\n');
@@ -662,7 +658,6 @@ const handleExportCSV = () => {
         </>
       )}
     </div>
-   // </div>
   );
 };
 
