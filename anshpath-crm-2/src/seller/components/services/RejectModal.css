@@ -14,11 +14,11 @@
 
 /* ===================== 📦 Modal Container ===================== */
 .reject-modal-rm .modal-content-rm {
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-nr);
   color: var(--text-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-nr);
+  box-shadow: var(--box-shadow-nr);
+  border: 1px solid var(--border-color-nr);
   width: 95%;
   max-width: 900px;
   padding: 0;
@@ -34,7 +34,7 @@
 
 /* ===================== 🧢 Modal Header ===================== */
 .modal-header-rm {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-nr);
   color: white;
   padding: 16px 24px;
   display: flex;
@@ -60,12 +60,12 @@
 /* ===================== 🧾 Modal Body ===================== */
 .modal-body-rm {
   padding: 24px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-nr);
 }
 
 .form-label-rm {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-color-nr);
   display: block;
   margin-bottom: 10px;
   font-size: 15px;
@@ -74,10 +74,10 @@
 .textarea-rm {
   width: 100%;
   padding: 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color-nr);
   border-radius: 8px;
-  background-color: var(--bg-light);
-  color: var(--text-color);
+  background-color: var(--bg-light-nr);
+  color: var(--text-color-nr);
   font-size: 15px;
   resize: vertical;
   min-height: 180px;
@@ -85,7 +85,7 @@
 
 /* ===================== ⚠️ Error Message ===================== */
 .error-message-rm {
-  color: var(--error-color);
+  color: var(--error-color-nr);
   font-size: 14px;
   margin-top: 6px;
 }
@@ -95,7 +95,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 16px 24px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-nr);
   gap: 12px;
 }
 
@@ -113,17 +113,17 @@
 
 /* Cancel Button */
 .btn-cancel-rm {
-  background-color: var(--bg-muted);
-  color: var(--text-color);
+  background-color: var(--bg-muted-nr);
+  color: var(--text-color-nr);
 }
 
 .btn-cancel-rm:hover {
-  background-color: var(--border-color);
+  background-color: var(--border-color-nr);
 }
 
 /* Confirm (Reject) Button */
 .btn-confirm-rm {
-  background-color: var(--error-color);
+  background-color: var(--error-color-nr);
   color: white;
 }
 
@@ -136,21 +136,21 @@
 .dark-mode-HDW-01 .reject-modal-rm .modal-body-rm,
 .dark-mode-HDW-01 .reject-modal-rm .textarea-rm,
 .dark-mode-HDW-01 .reject-modal-rm .modal-footer-rm {
-  background-color: var(--bg-light);
-  color: var(--text-color);
+  background-color: var(--bg-light-nr);
+  color: var(--text-color-nr);
 }
 
 .dark-mode-HDW-01 .reject-modal-rm .btn-cancel-rm {
-  background-color: var(--bg-muted);
-  color: var(--text-color);
+  background-color: var(--bg-muted-nr);
+  color: var(--text-color-nr);
 }
 
 .dark-mode-HDW-01 .reject-modal-rm .btn-cancel-rm:hover {
-  background-color: var(--border-color);
+  background-color: var(--border-color-nr);
 }
 
 .dark-mode-HDW-01 .reject-modal-rm .btn-confirm-rm {
-  background-color: var(--error-color);
+  background-color: var(--error-color-nr);
   color: white;
 }
 

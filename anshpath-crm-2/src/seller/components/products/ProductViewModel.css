@@ -9,10 +9,10 @@
 }
 
 .modal-content-vs {
-  background-color: var(--bg-light);
-  color: var(--text-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: var(--bg-light-ph);
+  color: var(--text-color-ph);
+  border-radius: var(--border-radius-ph);
+  box-shadow: var(--box-shadow-ph);
   width: 100%;
   max-width: 500px;
   max-height: 90vh;
@@ -24,11 +24,11 @@
 }
 
 .modal-header-vs {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-ph);
   color: white;
   padding: 12px 16px;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius-ph);
+  border-top-right-radius: var(--border-radius-ph);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +38,7 @@
 
 .modal-body-vs {
   padding: 20px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-ph);
   overflow-y: auto;
   flex: 1;
 }
@@ -59,16 +59,16 @@
 }
 
 .btn-close-vs:hover {
-  color: var(--error-color);
+  color: var(--error-color-ph);
 }
 
 .btn-cancel-vs {
-  background-color: var(--error-color);
+  background-color: var(--error-color-ph);
   color: #fff;
   border: none;
   padding: 8px 16px;
   font-size: 14px;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-ph);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -83,9 +83,9 @@
   max-height: 150px;
   object-fit: contain;
   border-radius: 8px;
-  background: var(--bg-muted);
+  background: var(--bg-muted-ph);
   padding: 2px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color-ph);
 }
 
 .text-center-vs h5 {
@@ -98,32 +98,52 @@
 
 .row-vs > div {
   font-size: 16px;
-  color: var(--text-color);
+  color: var(--text-color-ph);
   margin-bottom: 6px; /* less vertical spacing */
 }
 
 /* Dark mode support */
 .dark-mode-HDW-01 .modal-content-vs {
-  background-color: var(--bg-light);
-  color: var(--text-color);
+  background-color: var(--bg-light-ph);
+  color: var(--text-color-ph);
 }
 
 .dark-mode-HDW-01 .modal-body-vs {
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-ph);
 }
 
 .dark-mode-HDW-01 img {
-  background: var(--bg-muted);
-  border: 1px solid var(--border-color);
+  background: var(--bg-muted-ph);
+  border: 1px solid var(--border-color-ph);
 }
 
 @media (max-width: 768px) {
-  .modal-content-vs {
-    max-width: 95%;
-    max-height: 95vh;
+  .row.text-start-vs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .modal-body-vs {
-    padding: 15px;
+  .row.text-start-vs .col-6 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+   .row.text-start-vs .col-6 strong {
+    display: inline-block;
+    min-width: 130px; /* 👈 increase width here */
+    font-weight: 600;
+    white-space: nowrap;
   }
 }
+
+  .row.text-start-vs .col-6 span {
+    flex: 1;
+    text-align: left;
+  }
+
+

@@ -9,10 +9,10 @@
 }
 
 .modal-content-ed {
-  background-color: var(--bg-light);
-  color: var(--text-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: var(--bg-light-ph);
+  color: var(--text-color-ph);
+  border-radius: var(--border-radius-ph);
+  box-shadow: var(--box-shadow-ph);
   width: 50%;                /* increased from 700px */
   max-width: 1000px;           /* allow larger width */
   max-height: 95vh;            /* slightly taller */
@@ -24,11 +24,11 @@
 }
 
 .modal-header-ed {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-ph);
   color: white;
   padding: 12px 16px;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius-ph);
+  border-top-right-radius: var(--border-radius-ph);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +38,7 @@
 
 .modal-body-ed {
   padding: 20px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-light-ph);
   overflow-y: auto;
   flex: 1; /* allow body to expand and scroll if needed */
 }
@@ -60,12 +60,12 @@
 
 
 .btn-cancel-ed {
-  background-color: var(--error-color); /* Red */
+  background-color: var(--error-color-ph); /* Red */
   color: #fff;
   border: none;
   padding: 8px 16px;
   font-size: 14px;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-ph);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -75,28 +75,28 @@
 }
 
 .btn-save-ed {
-  background-color: var(--primary-color); /* Blue */
+  background-color: var(--primary-color-ph); /* Blue */
   color: #fff;
   border: none;
   padding: 8px 16px;
   font-size: 14px;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-ph);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .btn-save-ed:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color-ph);
 }
 
 .form-control-ed {
   width: 100%;
   padding: 6px 8px;
   font-size: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color-ph);
   border-radius: 6px;
-  background-color: var(--bg-light);
-  color: var(--text-color);
+  background-color: var(--bg-light-ph);
+  color: var(--text-color-ph);
   margin-bottom: 10px; /* add spacing only if needed */
 }
 .image-wrapper-ed {
@@ -116,16 +116,32 @@
 
 /* DARK MODE */
 .dark-mode-HDW-01 .modal-content-ed {
-  background-color: var(--bg-light);
-  color: var(--text-color);
+  background-color: var(--bg-light-ph);
+  color: var(--text-color-ph);
 }
 
 .dark-mode-HDW-01 .form-control-ed {
-  background-color: var(--bg-muted);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
+  background-color: var(--bg-muted-ph);
+  color: var(--text-color-ph);
+  border: 1px solid var(--border-color-ph);
 }
+.row-ed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.col-6 {
+  flex: 0 0 48%;
+  max-width: 48%;
+}
+
 @media (max-width: 768px) {
+  .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .modal-content-ed {
     max-width: 95%;
     max-height: 95vh;
@@ -135,22 +151,7 @@
     padding: 15px;
   }
 }
-.row-ed {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px; /* less space between fields */
-}
 
-.col-6 {
-  flex: 0 0 48%; /* allows 2 inputs side-by-side with gap */
-  max-width: 48%;
-}
-
-@media (max-width: 768px) {
-  .row-ed {
-    grid-template-columns: 1fr; /* stack fields on smaller screens */
-  }
-}
 
 /* Optional: increase label spacing and font size for clarity */
 .row-ed label {
