@@ -1,0 +1,720 @@
+/* === Theme Variables === */
+:root {
+  --primary-color-AJC: #3b59d2;
+  --secondary-color-AJC: #4cc9f0;
+  --error-color-AJC: #dc3545;
+  --success-color-AJC: #28a745;
+  --bg-light-AJC: #ffffff;
+  --bg-muted-AJC: #f8f9fc;
+  --bg-alt-AJC: #eaf3fa;
+  --text-color-AJC: #212529;
+  --border-color-AJC: #dee2e6;
+  --box-shadow-AJC: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius-AJC: 8px;
+}
+
+.dark-mode-HDW-01 {
+  --primary-color-AJC: #5f8cff;
+  --secondary-color-AJC: #4dabf7;
+  --error-color-AJC: #ff6b6b;
+  --success-color-AJC: #69db7c;
+  --bg-light-AJC: #232324;
+  --bg-muted-AJC: #2e2e40;
+  --bg-alt-AJC: #2a2a2a;
+  --text-color-AJC: #f5f5f5;
+  --border-color-AJC: #444;
+  --box-shadow-AJC: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* === Container === */
+.job-container-AJC {
+  padding: 20px;
+  background-color: var(--bg-light-ST);
+  border-top: 8px solid var(--primary-color-ST);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-ST);
+  color: var(--text-color-ST);
+}
+
+/* === Title === */
+.title-AJC {
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color-AJC);
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+.title-AJC::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color-AJC);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* === Search Input === */
+.search-input-AJC {
+  max-width: 250px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  display: block;
+  border-radius: var(--border-radius-AJC);
+  border: 1px solid var(--border-color-AJC);
+  background-color: var(--bg-light-AJC);
+  color: var(--text-color-AJC);
+  padding: 8px;
+}
+.search-input-AJC:focus {
+  border-color: var(--primary-color-AJC);
+  outline: none;
+}
+.dark-mode-HDW-01 .search-input-AJC::placeholder {
+  color: var(--text-color-AJC);
+  opacity: 0.6;
+}
+
+/* === Job Grid === */
+.job-grid-AJC {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === Job Card === */
+.job-card-AJC {
+  background: var(--bg-alt-AJC);
+  padding: 0.8rem;
+  border-radius: var(--border-radius-AJC);
+  box-shadow: var(--box-shadow-AJC);
+  border: 1px solid var(--border-color-AJC);
+  transition: transform 0.2s ease;
+}
+.job-card-AJC:hover {
+  transform: translateY(-3px);
+}
+
+/* === Header === */
+.job-header-AJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+/* === Status Badge === */
+.status-badge-AJC {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.status-working-AJC {
+  background: var(--success-color-AJC);
+}
+.status-inspection-AJC {
+  background: var(--secondary-color-AJC);
+}
+.status-parts-AJC {
+  background: #ffc107;
+  color: #000;
+}
+.status-completed-AJC {
+  background: #6c757d;
+}
+.status-cancelled-AJC {
+  background: var(--error-color-AJC);
+}
+
+/* === Body === */
+.job-body-AJC p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* === Actions === */
+.job-actions-AJC {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Common button style */
+.action-btn-AJC {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* View (Blue) */
+.action-btn-AJC.view {
+  background-color: #1976d2;
+}
+
+.action-btn-AJC.view:hover {
+  background-color: #1565c0;
+}
+
+/* Edit (Green) */
+.action-btn-AJC.edit {
+  background-color: #2e7d32;
+}
+
+.action-btn-AJC.edit:hover {
+  background-color: #1b5e20;
+}
+
+/* Cancel (Red) */
+.action-btn-AJC.cancel {
+  background-color: #d32f2f;
+}
+
+.action-btn-AJC.cancel:hover {
+  background-color: #b71c1c;
+}
+
+/* === Pagination === */
+.pagination-AJC {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-AJC button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color-AJC);
+  background: var(--bg-muted-AJC);
+  color: var(--text-color-AJC);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pagination-AJC button.active {
+  background: var(--primary-color-AJC);
+  color: #fff;
+}
+
+/* === Popup Overlay === */
+.popup-overlay-AJC {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1px;
+}
+
+/* === Popup Card === */
+.popup-card-AJC {
+  background: var(--bg-light-AJC);
+  color: var(--text-color-AJC);
+  padding: 24px;
+  border-radius: var(--border-radius-AJC);
+  width: 80%;
+  max-width: fit-content;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--box-shadow-AJC);
+}
+.popup-card-AJC.wide {
+  max-width: fit-content;
+}
+
+/* === Popup Header === */
+.popup-header-AJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--primary-color-AJC);
+}
+.popup-header-AJC h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.popup-header-AJC button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--error-color-AJC);
+  cursor: pointer;
+}
+
+/* === Popup Body === */
+.popup-body-AJC label {
+  display: block;
+  margin: 0.5rem 0 0.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.popup-body-AJC input,
+.popup-body-AJC select,
+.popup-body-AJC textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color-AJC);
+  border-radius: var(--border-radius-AJC);
+  background: var(--bg-muted-AJC);
+  color: var(--text-color-AJC);
+}
+.label-ajc-field {
+  color: var(--primary-color-AJC);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* === Editable Table === */
+/* === Table Responsive Wrapper === */
+.table-responsive-AJC {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* === Editable Table === */
+.editable-table-AJC {
+  width: 100%;
+  min-width: 800px; /* Ensures table doesn't shrink too much */
+  border-collapse: collapse;
+}
+.editable-table-AJC th,
+.editable-table-AJC td {
+  border: 1px solid var(--border-color-AJC);
+  padding: 6px;
+  font-size: 13px;
+}
+.editable-table-AJC input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* === Field Row === */
+.field-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.field-row > div {
+  flex: 1;
+}
+
+/* === Add Part Button === */
+.add-part-btn-AJC {
+  background: var(--secondary-color-AJC);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.add-part-btn-AJC:hover {
+  background: var(--primary-color-AJC);
+}
+
+/* === Popup Footer Buttons === */
+.popup-footer-AJC {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.save-btn,
+.cancel-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius-AJC);
+  font-weight: 600;
+  cursor: pointer;
+}
+.save-btn {
+  background: var(--success-color-AJC);
+  color: white;
+}
+.cancel-btn {
+  background: var(--error-color-AJC);
+  color: white;
+}
+
+/* === Submit / Cancel Input === */
+.submit-btn-AJC {
+  padding: 10px 20px;
+  background: var(--error-color-AJC);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cancel-input-AJC {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--border-radius-AJC);
+  border: 1px solid var(--border-color-AJC);
+  margin: 10px 0;
+}
+
+/* === Small Edit & Cancel Buttons === */
+.edit-btn-AJC,
+.cancel-btn-AJC {
+  font-size: 13px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.edit-btn-AJC {
+  background-color: var(--primary-color-AJC);
+  color: #fff;
+}
+.edit-btn-AJC:hover {
+  background-color: var(--secondary-color-AJC);
+}
+.cancel-btn-AJC {
+  background-color: var(--error-color-AJC);
+  color: #fff;
+}
+.cancel-btn-AJC:hover {
+  background-color: #c82333;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .title-AJC {
+    font-size: 20px;
+  }
+
+  .job-grid-AJC {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input-AJC {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .popup-card-AJC {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .field-row {
+    flex-direction: column;
+  }
+
+  .job-actions-AJC {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .popup-footer-AJC {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.ajc-field-row-dual {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.ajc-field-row-dual > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.popup-body-AJC label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+textarea,
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px; /* Improve touch accessibility */
+}
+
+/* Make inputs and layout more accessible and readable on small devices */
+@media (max-width: 600px) {
+  .ajc-field-row-dual {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ajc-field-row-dual > div {
+    width: 100%;
+  }
+
+  .popup-body-AJC label {
+    font-size: 1rem;
+  }
+
+  textarea,
+  input,
+  select {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 400px) */
+@media (max-width: 400px) {
+  textarea,
+  input,
+  select {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .ajc-field-row-dual {
+    gap: 0.5rem;
+  }
+}
+
+.center-btn-AJC{
+    display: block;
+  margin: 0 auto;
+
+}
+.view-job-card-AJC__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px; /* push below your fixed header */
+  overflow-y: auto;
+}
+
+.view-job-card-AJC__card {
+  background-color: var(--bg-light-AJC);
+  color: var(--text-color-AJC);
+  border-radius: var(--border-radius-AJC);
+  box-shadow: var(--box-shadow-AJC);
+  width: 90%;
+  max-width: 800px;
+  padding: 24px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color-AJC);
+}
+
+.view-job-card-AJC__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color-AJC);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+
+.view-job-card-AJC__header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--primary-color-AJC);
+}
+
+.view-job-card-AJC__header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color-AJC);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.view-job-card-AJC__header button:hover {
+  color: var(--error-color-AJC);
+}
+
+.view-job-card-AJC__body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.view-job-card-AJC__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  margin-bottom: 20px;
+}
+
+.view-job-card-AJC__grid div {
+  background-color: var(--bg-alt-AJC);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.view-job-card-AJC__section {
+  margin: 20px 0;
+}
+
+.view-job-card-AJC__section strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color-AJC);
+}
+
+.view-job-card-AJC__section ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.view-job-card-AJC__section li {
+  margin-bottom: 6px;
+}
+
+.view-job-card-AJC__totals {
+  text-align: right; /* Aligns text to the right */
+}
+
+.view-job-card-AJC__totals p {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+
+.view-job-card-AJC__cancel {
+  color: var(--error-color-AJC);
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .view-job-card-AJC__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-job-card-AJC__card {
+    padding: 16px;
+  }
+}
+.edit-job-card-AJC__totals-remarks-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.edit-job-card-AJC__totals-remarks-row > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-job-card-AJC__totals-remarks-row textarea,
+.edit-job-card-AJC__totals-remarks-row input {
+  padding: 8px;
+  border: 1px solid var(--border-color-AJC);
+  border-radius: var(--border-radius-AJC);
+  background-color: var(--bg-muted-AJC);
+  color: var(--text-color-AJC);
+}
+
+.edit-job-card-AJC__completed-section {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.edit-job-card-AJC__completed-section textarea,
+.edit-job-card-AJC__completed-section select,
+.edit-job-card-AJC__completed-section input {
+  padding: 8px;
+  border: 1px solid var(--border-color-AJC);
+  border-radius: var(--border-radius-AJC);
+  background-color: var(--bg-alt-AJC);
+  color: var(--text-color-AJC);
+}
+
+@media (max-width: 768px) {
+  .edit-job-card-AJC__completed-section {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-job-card-AJC__totals-remarks-row {
+    flex-direction: column;
+  }
+}
+.ajc-field-row-triple {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-triple > div {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .ajc-field-row-triple {
+    grid-template-columns: 1fr;
+  }
+}
+.ajc-field-row-dual {
+  /* display: grid; */
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-dual > div,
+.ajc-field-row-single > div {
+  display: flex;
+  flex-direction: column;
+}
+.delete-btn-red-AJC {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.0rem; 
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; 
+}
+

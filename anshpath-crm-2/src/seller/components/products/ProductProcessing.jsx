@@ -342,7 +342,6 @@ const handlePrint = () => {
         </button>
       </div>
 
-
       {editingId && editedRow && (
         <div className="edit-popup-overlay-POD">
           <div className="edit-popup-POD">
@@ -431,8 +430,6 @@ const handlePrint = () => {
           </div>
         </div>
       )}
-
-
 
       {deleteCandidate && (
         <div className="delete-popup-overlay-POD">

@@ -273,7 +273,7 @@ const SellerDashboard = () => {
                   <Link to="/tables/approvalJobCard">Approval JobCard</Link>
                 </li>
                 <li className="submenu-item-HDW-01 text-danger" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Active JobCard</Link>
+                  <Link to="/active-job-Cards">Active JobCard</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/job-cards/history">Job History</Link>

@@ -552,4 +552,28 @@ thead {
   background-color: #555;
   border-radius: 4px;
 }
+@media (max-width: 768px) {
+  .field-row-POD {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .field-group-POD {
+    flex: 1 1 100%;
+  }
+
+  .edit-popup-POD {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .edit-scroll-POD {
+    padding-right: 0;
+  }
+}
+.field-group-POD label {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: var(--primary-color-POT);
+}
 
