@@ -271,10 +271,10 @@ const AddProducts = () => {
     <Container className="pf-container">
       <Card className="pf-card">
         <Card.Header className="pf-header">
-          <h5 className="pf-title">
+          <h2 className="pf-title">
             <FiPackage className="me-2" />
             Add Automobile Product
-          </h5>
+          </h2>
           <GiCarWheel className="pf-floating-icon-1" />
         </Card.Header>
         <Card.Body className="pf-body">

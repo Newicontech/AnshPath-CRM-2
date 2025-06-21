@@ -4,6 +4,8 @@ import DashboardOverview from '../components/dashboard/DashboardOverview';
 import SparePartAdd from '../components/inventry/SparePartAdd';
 import LessStockTable from '../components/inventry/LessStockTable';
 import AddProducts from '../components/products/AddProducts';
+import AddServices from '../components/services/AddServices';
+import ServiceHistoryTable from '../components/services/ServiceHistoryTable';
 
 const SellerRouting = () => (
   <Routes>
@@ -13,8 +15,8 @@ const SellerRouting = () => (
     <Route path="/inventory/sparePartsAdd" element={<SparePartAdd />} />
     <Route path="/inventory/lessStockTable" element={<LessStockTable />} />
     <Route path="/addProducts" element={<AddProducts />} />
-    
-     
+    <Route path="/services/addServices" element={<AddServices />} />    
+    <Route path="/services/historyTable" element={<ServiceHistoryTable />} /> 
     
   </Routes>
 );
