@@ -20,6 +20,9 @@ import {
   FaTimes,
   FaInfo,
   FaCommentDots,
+  FaCalendarCheck,
+  FaRupeeSign ,
+  FaClipboardList ,
 } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
