@@ -24,8 +24,6 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const statusBadgeClass = {
   'Working': 'status-working-AJC',
   'Under Inspection': 'status-inspection-AJC',
