@@ -444,7 +444,7 @@ const SellerDashboard = () => {
                   <Link to="/inventory/purchaseOrders">Purchase Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Purchase Details</Link>
+                  <Link to="/inventory/purchaseDetails">Purchase Details</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/inventory/purchaseReturns">Purchase Returns</Link>

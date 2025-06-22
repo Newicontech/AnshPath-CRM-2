@@ -6,6 +6,7 @@ import LessStockTable from '../components/inventry/LessStockTable';
 import AddProducts from '../components/products/AddProducts';
 import AddServices from '../components/services/AddServices';
 import ServiceHistoryTable from '../components/services/ServiceHistoryTable';
+import PurchaseDetails from '../components/inventry/PurchaseDetails';
 
 const SellerRouting = () => (
   <Routes>
@@ -17,6 +18,7 @@ const SellerRouting = () => (
     <Route path="/addProducts" element={<AddProducts />} />
     <Route path="/services/addServices" element={<AddServices />} />    
     <Route path="/services/historyTable" element={<ServiceHistoryTable />} /> 
+    <Route path="/inventory/purchaseDetails" element={<PurchaseDetails />} />
     
   </Routes>
 );
