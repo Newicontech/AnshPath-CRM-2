@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Container, Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { FiPackage, FiTag, FiTruck, FiDollarSign, FiArchive, FiFileText, FiImage, FiCheckCircle,FiTool } from 'react-icons/fi';
@@ -266,6 +267,7 @@ const AddProducts = () => {
     setErrors({});
     setIsSubmitted(false);
   };
+
 
   return (
     <Container className="pf-container">
@@ -578,3 +580,4 @@ const AddProducts = () => {
 };
 
 export default AddProducts;
+

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Base Styles */
@@ -761,6 +762,7 @@
   font-weight: 600;
   transform: translateY(-1.25rem) scale(0.85);
 }
+
 .dark-mode-HDW-01 .pf-floating-icon-1 {
   color:#6D6D6D;
   opacity: 0.8;
@@ -795,3 +797,4 @@
 .dark-mode-HDW-01 select.pf-select::-webkit-scrollbar-thumb:hover {
   background: #2746b0;
 }
+

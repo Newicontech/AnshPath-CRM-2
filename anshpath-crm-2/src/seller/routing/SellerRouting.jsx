@@ -7,6 +7,8 @@ import AddProducts from '../components/products/AddProducts';
 import AddServices from '../components/services/AddServices';
 import ServiceHistoryTable from '../components/services/ServiceHistoryTable';
 import PurchaseDetails from '../components/inventry/PurchaseDetails';
+import ProductList from '../components/products/ProductList';
+
 
 const SellerRouting = () => (
   <Routes>
@@ -19,7 +21,7 @@ const SellerRouting = () => (
     <Route path="/services/addServices" element={<AddServices />} />    
     <Route path="/services/historyTable" element={<ServiceHistoryTable />} /> 
     <Route path="/inventory/purchaseDetails" element={<PurchaseDetails />} />
-    
+    <Route path="/products/productList" element={<ProductList />} />
   </Routes>
 );
 
