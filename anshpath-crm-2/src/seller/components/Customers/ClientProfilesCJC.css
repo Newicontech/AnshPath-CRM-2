@@ -1,0 +1,1124 @@
+/* === Theme Variables === */
+:root {
+  --primary-color-CJC: #3b59d2;
+  --secondary-color-CJC: #4cc9f0;
+  --error-color-CJC: #dc3545;
+  --success-color-CJC: #28a745;
+  --bg-light-CJC: #ffffff;
+  --bg-muted-CJC: #f8f9fc;
+  --bg-alt-CJC: #eaf3fa;
+  --text-color-CJC: #212529;
+  --border-color-CJC: #dee2e6;
+  --box-shadow-CJC: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius-CJC: 8px;
+}
+
+.dark-mode-HDW-01 {
+  --primary-color-CJC: #5f8cff;
+  --secondary-color-CJC: #4dabf7;
+  --error-color-CJC: #ff6b6b;
+  --success-color-CJC: #69db7c;
+  --bg-light-CJC: #232324;
+  --bg-muted-CJC: #2e2e40;
+  --bg-alt-CJC: #2a2a2a;
+  --text-color-CJC: #f5f5f5;
+  --border-color-CJC: #444;
+  --box-shadow-CJC: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* === Container === */
+.job-container-CJC {
+  padding: 20px;
+  background-color: var(--bg-light-ST);
+  border-top: 8px solid var(--primary-color-ST);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-ST);
+  color: var(--text-color-ST);
+}
+
+/* === Title === */
+.title-CJC {
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color-CJC);
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+.title-CJC::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color-CJC);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* === Search Input === */
+.search-input-CJC {
+  max-width: 250px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  display: block;
+  border-radius: var(--border-radius-CJC);
+  border: 1px solid var(--border-color-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  padding: 8px;
+
+}
+.search-input-CJC:focus {
+  border-color: var(--primary-color-CJC);
+  outline: none;
+}
+.dark-mode-HDW-01 .search-input-CJC::placeholder {
+  color: var(--text-color-CJC);
+  opacity: 0.6;
+}
+
+/* === Job Grid === */
+.job-grid-CJC {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === Job Card === */
+.job-card-CJC {
+  background: var(--bg-alt-CJC);
+  padding: 0.8rem;
+  border-radius: var(--border-radius-CJC);
+  box-shadow: var(--box-shadow-CJC);
+  border: 1px solid var(--border-color-CJC);
+  transition: transform 0.2s ease;
+}
+.job-card-CJC:hover {
+  transform: translateY(-3px);
+}
+
+/* === Header === */
+.job-header-CJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+/* === Status Badge === */
+.status-badge-CJC {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.status-working-CJC {
+  background: var(--success-color-CJC);
+}
+.status-inspection-CJC {
+  background: var(--secondary-color-CJC);
+}
+.status-parts-CJC {
+  background: #ffc107;
+  color: #000;
+}
+.status-completed-CJC {
+  background: #6c757d;
+}
+.status-cancelled-CJC {
+  background: var(--error-color-CJC);
+}
+
+/* === Body === */
+.job-body-CJC p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* === Actions === */
+.job-actions-CJC {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Common button style */
+.action-btn-CJC {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* View (Blue) */
+.action-btn-CJC.view {
+  background-color: #1976d2;
+}
+
+.action-btn-CJC.view:hover {
+  background-color: #1565c0;
+}
+
+/* Edit (Green) */
+.action-btn-CJC.edit {
+  background-color: #2e7d32;
+}
+
+.action-btn-CJC.edit:hover {
+  background-color: #1b5e20;
+}
+
+/* Cancel (Red) */
+.action-btn-CJC.cancel {
+  background-color: #d32f2f;
+}
+
+.action-btn-CJC.cancel:hover {
+  background-color: #b71c1c;
+}
+
+/* === Pagination === */
+.pagination-CJC {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-CJC button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color-CJC);
+  background: var(--bg-muted-CJC);
+  color: var(--text-color-CJC);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pagination-CJC button.active {
+  background: var(--primary-color-CJC);
+  color: #fff;
+}
+
+/* === Popup Overlay === */
+.popup-overlay-CJC {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1px;
+}
+
+/* === Popup Card === */
+.popup-card-CJC {
+  background: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  padding: 24px;
+  border-radius: var(--border-radius-CJC);
+  width: 80%;
+  max-width: fit-content;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--box-shadow-CJC);
+}
+.popup-card-CJC.wide {
+  max-width: 550px;
+}
+
+/* === Popup Header === */
+.popup-header-CJC {
+  position: relative;
+  display: flex;
+  justify-content: center; /* centers the h3 */
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--primary-color-CJC);
+  padding: 0 16px;
+}
+
+.popup-header-CJC h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+  flex: 1;
+}
+
+.popup-header-CJC button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--error-color-CJC);
+  cursor: pointer;
+}
+
+
+/* === Popup Body === */
+.popup-body-CJC label {
+  display: block;
+  margin: 0.5rem 0 0.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.popup-body-CJC input,
+.popup-body-CJC select,
+.popup-body-CJC textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background: var(--bg-muted-CJC);
+  color: var(--text-color-CJC);
+}
+.label-ajc-field {
+  color: var(--primary-color-CJC);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* === Editable Table === */
+/* === Table Responsive Wrapper === */
+.table-responsive-CJC {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* === Editable Table === */
+.editable-table-CJC {
+  width: 100%;
+  min-width: 800px; /* Ensures table doesn't shrink too much */
+  border-collapse: collapse;
+}
+.editable-table-CJC th,
+.editable-table-CJC td {
+  border: 1px solid var(--border-color-CJC);
+  padding: 6px;
+  font-size: 13px;
+}
+.editable-table-CJC input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* === Field Row === */
+.field-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.field-row > div {
+  flex: 1;
+}
+
+/* === Add Part Button === */
+.add-part-btn-CJC {
+  background: var(--secondary-color-CJC);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.add-part-btn-CJC:hover {
+  background: var(--primary-color-CJC);
+}
+
+/* === Popup Footer Buttons === */
+.popup-footer-CJC {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.save-btn,
+.cancel-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius-CJC);
+  font-weight: 600;
+  cursor: pointer;
+}
+.save-btn {
+  background: var(--success-color-CJC);
+  color: white;
+}
+.cancel-btn {
+  background: var(--error-color-CJC);
+  color: white;
+}
+
+/* === Submit / Cancel Input === */
+.submit-btn-CJC {
+  padding: 10px 20px;
+  background: var(--error-color-CJC);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cancel-input-CJC {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--border-radius-CJC);
+  border: 1px solid var(--border-color-CJC);
+  margin: 10px 0;
+}
+
+/* === Small Edit & Cancel Buttons === */
+.edit-btn-CJC,
+.cancel-btn-CJC {
+  font-size: 13px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.edit-btn-CJC {
+  background-color: var(--primary-color-CJC);
+  color: #fff;
+}
+.edit-btn-CJC:hover {
+  background-color: var(--secondary-color-CJC);
+}
+.cancel-btn-CJC {
+  background-color: var(--error-color-CJC);
+  color: #fff;
+}
+.cancel-btn-CJC:hover {
+  background-color: #c82333;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .title-CJC {
+    font-size: 20px;
+  }
+
+  .job-grid-CJC {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input-CJC {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .popup-card-CJC {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .field-row {
+    flex-direction: column;
+  }
+
+  .job-actions-CJC {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .popup-footer-CJC {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.ajc-field-row-dual {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.ajc-field-row-dual > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.popup-body-CJC label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+textarea,
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px; /* Improve touch accessibility */
+}
+
+/* Make inputs and layout more accessible and readable on small devices */
+@media (max-width: 600px) {
+  .ajc-field-row-dual {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ajc-field-row-dual > div {
+    width: 100%;
+  }
+
+  .popup-body-CJC label {
+    font-size: 1rem;
+  }
+
+  textarea,
+  input,
+  select {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 400px) */
+@media (max-width: 400px) {
+  textarea,
+  input,
+  select {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .ajc-field-row-dual {
+    gap: 0.5rem;
+  }
+}
+
+.center-btn-CJC{
+    display: block;
+  margin: 0 auto;
+
+}
+/* === View Card Overlay === */
+.view-job-card-CJC__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  overflow-y: auto;
+}
+
+/* === Main Card === */
+.view-job-card-CJC__card {
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  width: 95%;
+  max-width: 1000px;
+  padding: 32px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color-CJC);
+  animation: fadeInSlideUp 0.3s ease-out;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Header === */
+/* === View Card Overlay === */
+.view-job-card-CJC__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  overflow-y: auto;
+}
+
+/* === Main Card === */
+.view-job-card-CJC__card {
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  width: 95%;
+  max-width: 1000px;
+  padding: 32px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color-CJC);
+  animation: fadeInSlideUp 0.3s ease-out;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Header === */
+.view-job-card-CJC__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color-CJC);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+}
+
+.view-job-card-CJC__header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--primary-color-CJC);
+  font-weight: 600;
+}
+
+.view-job-card-CJC__header button {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--error-color-CJC);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.view-job-card-CJC__header button:hover {
+  color: var(--error-color-CJC);
+}
+
+/* === Grid Layout for Fields === */
+.view-job-card-CJC__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.view-job-card-CJC__grid div {
+  background-color: var(--bg-muted-CJC);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* === Section Title === */
+.view-job-card-CJC__section {
+  margin: 32px 0 24px;
+}
+
+.view-job-card-CJC__section strong {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  display: block;
+  color: var(--primary-color-CJC);
+}
+
+/* === Tables === */
+.table-responsive-CJC {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.editable-table-CJC {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.editable-table-CJC th {
+  background-color: var(--primary-color-CJC);
+  color: white;
+  text-align: left;
+  font-weight: 600;
+  padding: 10px 12px;
+}
+
+.editable-table-CJC td {
+  border: 1px solid var(--border-color-CJC);
+  padding: 10px 12px;
+  font-size: 14px;
+  background-color: var(--bg-light-CJC);
+}
+
+.editable-table-CJC .table-footer td {
+  font-weight: bold;
+  background-color: var(--bg-muted-CJC);
+}
+
+/* === Totals Section === */
+.view-job-card-CJC__totals {
+  text-align: right;
+  margin-top: 24px;
+}
+
+.view-job-card-CJC__totals p {
+  margin: 8px 0;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--primary-color-CJC);
+}
+
+/* === Cancel Message === */
+.view-job-card-CJC__cancel {
+  color: var(--error-color-CJC);
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+/* === Inline Status Badge === */
+.status-badge-inline-CJC {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  background: var(--secondary-color-CJC);
+  color: #fff;
+  margin-left: 10px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .view-job-card-CJC__card {
+    padding: 20px;
+  }
+
+  .view-job-card-CJC__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .editable-table-CJC {
+    font-size: 13px;
+  }
+
+  .view-job-card-CJC__header h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-job-card-CJC__card {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .editable-table-CJC th,
+  .editable-table-CJC td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .view-job-card-CJC__header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.edit-job-card-CJC__totals-remarks-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.edit-job-card-CJC__totals-remarks-row > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-job-card-CJC__totals-remarks-row textarea,
+.edit-job-card-CJC__totals-remarks-row input {
+  padding: 8px;
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background-color: var(--bg-muted-CJC);
+  color: var(--text-color-CJC);
+}
+
+.edit-job-card-CJC__completed-section {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.edit-job-card-CJC__completed-section textarea,
+.edit-job-card-CJC__completed-section select,
+.edit-job-card-CJC__completed-section input {
+  padding: 8px;
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background-color: var(--bg-alt-CJC);
+  color: var(--text-color-CJC);
+}
+
+@media (max-width: 768px) {
+  .edit-job-card-CJC__completed-section {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-job-card-CJC__totals-remarks-row {
+    flex-direction: column;
+  }
+}
+.ajc-field-row-triple {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-triple > div {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .ajc-field-row-triple {
+    grid-template-columns: 1fr;
+  }
+}
+.ajc-field-row-dual {
+  /* display: grid; */
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ajc-field-row-dual > div,
+.ajc-field-row-single > div {
+  display: flex;
+  flex-direction: column;
+}
+.delete-btn-red-CJC {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.0rem; 
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; 
+}
+
+.label-action-bar-CJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* Add Button (Service/Part) */
+.add-btn-CJC {
+  background-color: var(--primary-color-ST);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s;
+}
+.add-btn-CJC:hover {
+  background-color: var(--secondary-color-ST);
+}
+
+/* Small Delete Button inside table */
+.delete-btn-CJC-small {
+  background-color: var(--error-color-ST);
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.delete-btn-CJC-small:hover {
+  opacity: 0.9;
+}
+
+/* Save Button */
+.save-btn-CJC {
+  background-color: var(--success-color-ST);
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.save-btn-CJC:hover {
+  background-color: #218838;
+}
+
+/* Cancel Button */
+.cancel-btn-CJC {
+  background-color: var(--error-color-ST);
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cancel-btn-CJC:hover {
+  background-color: #c82333;
+}
+/* === Label Styling for CJC Modal === */
+.label-cjc-field {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-color-CJC);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+/* Used for icon + text inline labels */
+.ajc-field-row-dual label {
+  font-weight: 500;
+  color: var(--primary-color-CJC);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+  font-size: 13.5px;
+}
+/* Base layout for filter bar */
+.filter-bar-CJC {
+  display: flex;
+  justify-content: flex-start; /* LEFT + RIGHT layout */
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* LEFT side wrapper */
+.search-wrapper-CJC {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Search Input */
+.search-input-CJC {
+  min-width: 220px;
+  max-width: 300px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: var(--border-radius-CJC);
+  border: 1px solid var(--border-color-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  margin-bottom: 8px;
+}
+
+/* RIGHT side filters */
+.date-filters-CJC {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-CJC);
+}
+
+/* Label */
+.date-filters-CJC label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-CJC);
+}
+
+/* Date Input */
+.date-input-CJC {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.date-input-CJC:focus {
+  border-color: var(--primary-color-CJC);
+  outline: none;
+}
+
+/* ===== Dark Mode Support ===== */
+.dark-mode-HDW-01 .date-filters-CJC {
+  background-color: var(--bg-dark-CJC);
+  border-color: var(--border-color-dark-CJC);
+}
+.dark-mode-HDW-01 .date-filters-CJC label,
+.dark-mode-HDW-01 .date-input-CJC,
+.dark-mode-HDW-01 .search-input-CJC {
+  color: var(--text-color-dark-CJC);
+}
+.dark-mode-HDW-01 .date-input-CJC,
+.dark-mode-HDW-01 .search-input-CJC {
+  background-color: var(--input-bg-dark-CJC);
+  border-color: var(--border-color-dark-CJC);
+}
+
+/* ===== Mobile Responsive Stack ===== */
+@media (max-width: 767px) {
+  .filter-bar-CJC {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-input-CJC {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .date-filters-CJC {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .date-filters-CJC label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .date-input-CJC {
+    width: 100%;
+  }
+}
+.filters-container-CJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+/* LEFT section: search input */
+.filters-left-CJC {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.vehicle-search-CJC {
+  min-width: 220px;
+  max-width: 300px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: var(--border-radius-CJC);
+  border: 1px solid var(--border-color-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+}
+
+/* RIGHT section: date filters */
+.filters-right-CJC {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap; /* ⬅️ Force one line */
+}
+
+.filters-right-CJC label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-CJC);
+  white-space: nowrap; /* ⬅️ Prevent line breaks */
+}
+
+.date-picker-CJC {
+  padding: 6px 10px;
+  font-size: 14px;
+  width: 150px; /* ⬅️ Set fixed or max width */
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.date-picker-CJC:focus {
+  border-color: var(--primary-color-CJC);
+  outline: none;
+}
+@media (max-width: 600px) {
+  .filters-right-CJC {
+    flex-wrap: wrap; /* ⬅️ Allow stacking only on small screens */
+  }
+
+  .date-picker-CJC {
+    width: 100%; /* Take full width when stacked */
+  }
+}
