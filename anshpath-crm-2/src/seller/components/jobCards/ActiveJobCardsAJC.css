@@ -231,27 +231,43 @@
   box-shadow: var(--box-shadow-AJC);
 }
 .popup-card-AJC.wide {
-  max-width: fit-content;
+  max-width: 550px;
 }
 
 /* === Popup Header === */
 .popup-header-AJC {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center the h3 */
   align-items: center;
-  margin-bottom: 1rem;
-  color: var(--primary-color-AJC);
+  border-bottom: 2px solid var(--border-color-AJC);
+  margin-bottom: 16px;
+  padding: 10px 16px;
 }
+
 .popup-header-AJC h3 {
   margin: 0;
   font-size: 1.25rem;
+  text-align: center;
+  flex: 1; /* allows it to take full width to center */
+  color: var(--primary-color-AJC); /* optional styling */
 }
+
 .popup-header-AJC button {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
+position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color-AJC);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.popup-header-AJC button:hover {
   color: var(--error-color-AJC);
-  cursor: pointer;
 }
 
 /* === Popup Body === */
@@ -434,7 +450,7 @@
 }
 .ajc-field-row-dual {
   display: flex;
-  gap: 1rem;
+  gap: 40 px;
   margin-bottom: 1rem;
   flex-wrap: wrap;
 }
@@ -534,8 +550,9 @@ select {
 }
 
 .view-job-card-AJC__header {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center the h3 */
   align-items: center;
   border-bottom: 2px solid var(--border-color-AJC);
   margin-bottom: 16px;
@@ -546,9 +563,15 @@ select {
   margin: 0;
   font-size: 1.4rem;
   color: var(--primary-color-AJC);
+  text-align: center;
+  flex: 1; /* ensures h3 can expand to allow centering */
 }
 
 .view-job-card-AJC__header button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -560,6 +583,7 @@ select {
 .view-job-card-AJC__header button:hover {
   color: var(--error-color-AJC);
 }
+
 
 .view-job-card-AJC__body {
   font-size: 0.95rem;
@@ -613,6 +637,57 @@ select {
   font-weight: bold;
   margin-top: 16px;
 }
+/* Header section with title & buttons */
+.view-job-card-AJC__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.company-title-AJC {
+  font-size: 1.3rem;
+  color: var(--primary-color-AJC);
+  font-weight: bold;
+}
+
+.header-buttons-AJC button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+  color: var(--text-color-AJC);
+}
+
+.header-buttons-AJC button:hover {
+  color: var(--primary-color-AJC);
+}
+
+/* Align labels & values better */
+.view-job-card-AJC__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  margin-bottom: 20px;
+}
+
+.view-job-card-AJC__grid div {
+  background-color: var(--bg-alt-AJC);
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  gap: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.view-job-card-AJC__grid div span {
+  font-weight: bold;
+  color: var(--text-color-AJC);
+  white-space: nowrap;
+}
+
 
 @media (max-width: 640px) {
   .view-job-card-AJC__grid {
@@ -718,3 +793,103 @@ select {
   margin: 0 auto; 
 }
 
+/* Hide printable card on screen */
+#printable-job-card {
+  display: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+    box-shadow: none !important;
+  }
+
+  #printable-job-card,
+  #printable-job-card * {
+    visibility: visible !important;
+  }
+
+  #printable-job-card {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 40px;
+    background: white !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+    z-index: 9999;
+    display: block !important;
+  }
+
+  .company-title-PRINT-AJC {
+    text-align: center !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+    color: #3b59d2 !important;
+    margin-bottom: 30px !important;
+  }
+
+  .print-info-container-PRINT-AJC {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .print-info-group-PRINT-AJC {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .print-info-group-PRINT-AJC p {
+    display: flex;
+    font-size: 16px;
+    margin: 6px 0;
+  }
+
+  .label-PRINT-AJC {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+  }
+
+  .print-section-title-PRINT-AJC {
+    font-size: 19px !important;
+    font-weight: bold !important;
+    margin: 20px 0 12px !important;
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+
+  .print-table-PRINT-AJC {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 25px !important;
+  }
+
+  .print-table-PRINT-AJC th,
+  .print-table-PRINT-AJC td {
+    border: 1px solid #444 !important;
+    padding: 10px !important;
+    text-align: left !important;
+    font-size: 16px !important;
+  }
+
+  .print-table-PRINT-AJC th {
+    background-color: #f0f0f0 !important;
+  }
+
+  .print-total-summary-PRINT-AJC {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin-top: 30px !important;
+    text-align: right !important;
+  }
+}
+@media print {
+  .hide-on-print {
+    display: none !important;
+  }
+}

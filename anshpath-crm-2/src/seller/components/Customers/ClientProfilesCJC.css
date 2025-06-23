@@ -232,28 +232,39 @@
   box-shadow: var(--box-shadow-CJC);
 }
 .popup-card-CJC.wide {
-  max-width: fit-content;
+  max-width: 550px;
 }
 
 /* === Popup Header === */
 .popup-header-CJC {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centers the h3 */
   align-items: center;
   margin-bottom: 1rem;
   color: var(--primary-color-CJC);
+  padding: 0 16px;
 }
+
 .popup-header-CJC h3 {
   margin: 0;
   font-size: 1.25rem;
+  text-align: center;
+  flex: 1;
 }
+
 .popup-header-CJC button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
   border: none;
   font-size: 1.5rem;
   color: var(--error-color-CJC);
   cursor: pointer;
 }
+
 
 /* === Popup Body === */
 .popup-body-CJC label {
@@ -939,42 +950,51 @@ select {
 /* Base layout for filter bar */
 .filter-bar-CJC {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* LEFT + RIGHT layout */
   align-items: flex-end;
   flex-wrap: wrap;
-  /* gap: 16px; */
+  gap: 12px;
   margin-bottom: 20px;
 }
 
-/* Ensure consistent spacing/alignment */
-.search-input-CJC {
+/* LEFT side wrapper */
+.search-wrapper-CJC {
   flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Search Input */
+.search-input-CJC {
   min-width: 220px;
   max-width: 300px;
-  padding: 8px 12px;
+  width: 100%;
+  padding: 8px;
   font-size: 14px;
   border-radius: var(--border-radius-CJC);
   border: 1px solid var(--border-color-CJC);
   background-color: var(--bg-light-CJC);
   color: var(--text-color-CJC);
-   margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
+/* RIGHT side filters */
 .date-filters-CJC {
   display: flex;
   gap: 12px;
   align-items: center;
   padding: 8px 12px;
   border-radius: var(--border-radius-CJC);
-
 }
 
+/* Label */
 .date-filters-CJC label {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-color-CJC);
 }
 
+/* Date Input */
 .date-input-CJC {
   padding: 6px 10px;
   font-size: 14px;
@@ -1033,5 +1053,72 @@ select {
 
   .date-input-CJC {
     width: 100%;
+  }
+}
+.filters-container-CJC {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+/* LEFT section: search input */
+.filters-left-CJC {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.vehicle-search-CJC {
+  min-width: 220px;
+  max-width: 300px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: var(--border-radius-CJC);
+  border: 1px solid var(--border-color-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+}
+
+/* RIGHT section: date filters */
+.filters-right-CJC {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap; /* ⬅️ Force one line */
+}
+
+.filters-right-CJC label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-CJC);
+  white-space: nowrap; /* ⬅️ Prevent line breaks */
+}
+
+.date-picker-CJC {
+  padding: 6px 10px;
+  font-size: 14px;
+  width: 150px; /* ⬅️ Set fixed or max width */
+  border: 1px solid var(--border-color-CJC);
+  border-radius: var(--border-radius-CJC);
+  background-color: var(--bg-light-CJC);
+  color: var(--text-color-CJC);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.date-picker-CJC:focus {
+  border-color: var(--primary-color-CJC);
+  outline: none;
+}
+@media (max-width: 600px) {
+  .filters-right-CJC {
+    flex-wrap: wrap; /* ⬅️ Allow stacking only on small screens */
+  }
+
+  .date-picker-CJC {
+    width: 100%; /* Take full width when stacked */
   }
 }

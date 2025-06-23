@@ -175,7 +175,7 @@ const [toDate, setToDate] = useState('');
     <div className="popup-overlay-CJC">
       <div className="popup-card-CJC wide">
         <div className="popup-header-CJC">
-          <h3>{isEdit ? 'Edit' : 'View'} Client – {sc.vehicleNo}</h3>
+          <h3><strong>{isEdit ? 'Edit' : 'View'} Client – {sc.vehicleNo}</strong></h3>
           <button onClick={() => setSelectedClient(null)}>×</button>
         </div>
 
@@ -339,35 +339,37 @@ const [toDate, setToDate] = useState('');
  return (
     <div className="job-container-CJC">
       <ToastContainer position="top-right" autoClose={3000} />
-      <h2 className="title-CJC">Client Profiles</h2>
-<div className="filter-bar-CJC">
-  <input
-    className="search-input-CJC"
-    type="text"
-    placeholder="Search by Vehicle, Client or Status..."
-    value={search}
-    onChange={e => setSearch(e.target.value)}
-  />
-  <div className="date-filters-CJC">
-    <label htmlFor="fromDate">From:</label>
-    <input
-      type="date"
-      id="fromDate"
-      className="date-input-CJC"
-      value={fromDate}
-      onChange={e => setFromDate(e.target.value)}
-    />
-    <label htmlFor="toDate">To:</label>
-    <input
-      type="date"
-      id="toDate"
-      className="date-input-CJC"
-      value={toDate}
-      onChange={e => setToDate(e.target.value)}
-    />
-  </div>
-</div>
+      <h2 className="title-CJC">CLIENT PROFILES</h2>
+      <div className="filters-container-CJC">
+        <div className="filters-left-CJC">
+          <input
+            className="vehicle-search-CJC"
+            type="text"
+            placeholder="Search by Vehicle, Client or Status..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+        </div>
 
+        <div className="filters-right-CJC">
+          <label htmlFor="fromDate">From:</label>
+          <input
+            type="date"
+            id="fromDate"
+            className="date-picker-CJC"
+            value={fromDate}
+            onChange={e => setFromDate(e.target.value)}
+          />
+          <label htmlFor="toDate">To:</label>
+          <input
+            type="date"
+            id="toDate"
+            className="date-picker-CJC"
+            value={toDate}
+            onChange={e => setToDate(e.target.value)}
+          />
+        </div>
+      </div>
 
       <div className="job-grid-CJC">
         {pageClients.map(c => (

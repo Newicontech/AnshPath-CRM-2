@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef  } from 'react';
 import './ActiveJobCardsAJC.css';
 import {
   FaUser,
@@ -93,6 +93,8 @@ export default function ActiveJobCards() {
   const [mode, setMode] = useState(null);
   const [cancelReason, setCancelReason] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const printRef = useRef();
+
   const itemsPerPage = 8;
 
   const filteredJobs = jobs.filter(job => {
@@ -147,6 +149,87 @@ const calculatePartsTotal = (parts) =>
     const withGst = discounted * (1 + gst / 100);
     return acc + withGst;
   }, 0);
+const handlePrint = () => {
+  if (!printRef.current) return;
+  const printContents = printRef.current.cloneNode(true);
+  const controls = printContents.querySelectorAll('.hide-on-print');
+  controls.forEach(el => el.remove());
+
+  const printWindow = window.open('', '', 'width=900,height=700');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Job Card - ${selectedJob.jobCardNo}</title>
+        <style>
+          * {
+            font-family: 'Segoe UI', sans-serif;
+          }
+          body {
+            padding: 40px;
+            line-height: 1.6;
+            font-size: 16px;
+          }
+          h2 {
+            color: #3b59d2;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+          }
+          .view-job-card-AJC__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin-bottom: 20px;
+          }
+          .view-job-card-AJC__grid div {
+            padding: 8px 12px;
+            background: #f8f9fc;
+            border-radius: 6px;
+            font-weight: 500;
+            display: flex;
+            gap: 6px;
+          }
+          .view-job-card-AJC__grid div span {
+            font-weight: bold;
+            min-width: 120px;
+            display: inline-block;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+          th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f0f0f0;
+          }
+          .print-total-summary-PRINT-AJC {
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <h2>AnshPath Technologies Pvt. Ltd</h2>
+        ${printContents.innerHTML}
+      </body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => {
+    printWindow.print();
+    printWindow.close();
+  }, 500);
+};
+
 
 const handleAddPart = () => {
   const newParts = [...selectedJob.parts, {
@@ -192,12 +275,14 @@ const renderEditMode = () => {
     setSelectedJob({ ...selectedJob, services: newServices });
   };
 
+
+
 // === React Component ===
 return (
   <div className="popup-overlay-AJC">
     <div className="popup-card-AJC wide">
       <div className="popup-header-AJC">
-        <h3>Edit Job Card - {selectedJob.jobCardNo}</h3>
+        <h3><strong>Edit Job Card - {selectedJob.jobCardNo}</strong></h3>
         <button onClick={() => setSelectedJob(null)}>×</button>
       </div>
 
@@ -374,108 +459,108 @@ return (
 );
 }
 const renderViewMode = () => (
-  <div className="view-job-card-AJC__overlay">
-    <div className="view-job-card-AJC__card">
-      <div className="view-job-card-AJC__header">
-        <h3>View Job Card - {selectedJob.jobCardNo}</h3>
+<div className="view-job-card-AJC__overlay">
+  <div className="view-job-card-AJC__card" id="jobCardModal" ref={printRef}>
+    
+    {/* === Header === */}
+    <div className="view-job-card-AJC__header">
+      <h3><strong>View Job Card - {selectedJob.jobCardNo}</strong></h3>
+      <div className="header-btns-AJC hide-on-print">
+        {/* <button onClick={handlePrint}>🖨️</button> */}
         <button onClick={() => setSelectedJob(null)}>×</button>
       </div>
-      <div className="view-job-card-AJC__body">
-        <div className="view-job-card-AJC__grid">
-          <div><strong>Job No:</strong> {selectedJob.jobCardNo}</div>
-          <div><strong>Status:</strong> {selectedJob.status}</div>
-          <div><strong>Customer:</strong> {selectedJob.customerName}</div>
-          <div><strong>Mobile No.:</strong> {selectedJob.mobileNumber}</div>
-          <div><strong>Supervisor:</strong> {selectedJob.supervisor}</div>
-          <div><strong>Vehicle:</strong> {`${selectedJob.vehicleDetails.type} ${selectedJob.vehicleDetails.brand} ${selectedJob.vehicleDetails.model}`}</div>
-          <div><strong>Vehicle No:</strong> {selectedJob.vehicleNumber}</div>
-          <div><strong>KM Reading:</strong> {selectedJob.kmReading}</div>
-          <div><strong>Start Date:</strong> {new Date(selectedJob.startDateTime).toLocaleString()}</div>
-          <div><strong>Remarks:</strong> {selectedJob.remarks || '-'}</div>
-        </div>
+    </div>
 
-        {/* === Services Table (View Mode) === */}
-        <div className="view-job-card-AJC__section">
-          <strong>Services</strong>
-          <div className="table-responsive-AJC">
-            <table className="editable-table-AJC">
-              <thead>
-                <tr><th>Sr</th><th>Service Name</th><th>Price</th></tr>
-              </thead>
-              <tbody>
-                {selectedJob.services.map((s, idx) => (
-                  <tr key={s.id}>
-                    <td>{s.sr}</td>
-                    <td>{s.serviceName}</td>
-                    <td>₹{parseFloat(s.price).toFixed(2)}</td>
-                  </tr>
-                ))}
-                <tr className="table-footer">
-                  <td colSpan={2}><strong>Total</strong></td>
-                  <td><strong>₹{calculateServiceTotal(selectedJob.services).toFixed(2)}</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* === Parts Table (View Mode) === */}
-        <div className="view-job-card-AJC__section">
-          <strong>Parts</strong>
-          <div className="table-responsive-AJC">
-            <table className="editable-table-AJC">
-              <thead>
-                <tr>
-                  <th>Sr</th><th>Part</th><th>Qty</th><th>MRP</th><th>Rate</th><th>Disc%</th><th>GST%</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selectedJob.parts.map((p, idx) => (
-                  <tr key={p.id}>
-                    <td>{p.sr}</td>
-                    <td>{p.partDetails}</td>
-                    <td>{p.qty}</td>
-                    <td>₹{p.mrp}</td>
-                    <td>₹{p.rate}</td>
-                    <td>{p.disc}%</td>
-                    <td>{p.gst}%</td>
-                  </tr>
-                ))}
-                <tr className="table-footer">
-                  <td colSpan={6}><strong>Total</strong></td>
-                  <td><strong>₹{calculatePartsTotal(selectedJob.parts).toFixed(2)}</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {(selectedJob.status === 'Completed' || selectedJob.status === 'Cancelled') && (
-          <div className="view-job-card-AJC__grid">
-            {selectedJob.status === 'Completed' && selectedJob.finalSummary && (
-              <div><strong>Final Summary:</strong> {selectedJob.finalSummary}</div>
-            )}
-            {selectedJob.status === 'Completed' && selectedJob.paymentStatus && (
-              <div><strong>Payment Status:</strong> {selectedJob.paymentStatus}</div>
-            )}
-            {selectedJob.status === 'Completed' && selectedJob.completionDate && (
-              <div><strong>Completion Date:</strong> {new Date(selectedJob.completionDate).toLocaleDateString()}</div>
-            )}
-            {selectedJob.status === 'Cancelled' && selectedJob.cancelReason && (
-              <div><strong>Cancellation Reason:</strong> {selectedJob.cancelReason}</div>
-            )}
-          </div>
-        )}
-        <div className="view-job-card-AJC__totals">
-          <p><strong>Total Cost:</strong> ₹{(calculateServiceTotal(selectedJob.services) + calculatePartsTotal(selectedJob.parts)).toFixed(2)}</p>
-        </div>
-
-
+    {/* === Body Grid === */}
+    <div className="view-job-card-AJC__body">
+      <div className="view-job-card-AJC__grid">
+        <div><strong>Job No:</strong> {selectedJob.jobCardNo}</div>
+        <div><strong>Status:</strong> {selectedJob.status}</div>
+        <div><strong>Customer:</strong> {selectedJob.customerName}</div>
+        <div><strong>Mobile No.:</strong> {selectedJob.mobileNumber}</div>
+        <div><strong>Supervisor:</strong> {selectedJob.supervisor}</div>
+        <div><strong>Vehicle:</strong> {`${selectedJob.vehicleDetails.type} ${selectedJob.vehicleDetails.brand} ${selectedJob.vehicleDetails.model}`}</div>
+        <div><strong>Vehicle No:</strong> {selectedJob.vehicleNumber}</div>
+        <div><strong>KM Reading:</strong> {selectedJob.kmReading}</div>
+        <div><strong>Start Date:</strong> {new Date(selectedJob.startDateTime).toLocaleString()}</div>
+        <div><strong>Remarks:</strong> {selectedJob.remarks || '-'}</div>
       </div>
+
+      {/* === Services Table === */}
+      <div className="view-job-card-AJC__section">
+        <strong>Services</strong>
+        <div className="table-responsive-AJC">
+          <table className="editable-table-AJC">
+            <thead>
+              <tr><th>Sr</th><th>Service Name</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+              {selectedJob.services.map((s, idx) => (
+                <tr key={s.id}>
+                  <td>{s.sr}</td>
+                  <td>{s.serviceName}</td>
+                  <td>₹{parseFloat(s.price).toFixed(2)}</td>
+                </tr>
+              ))}
+              <tr className="table-footer">
+                <td colSpan={2}><strong>Total</strong></td>
+                <td><strong>₹{calculateServiceTotal(selectedJob.services).toFixed(2)}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* === Parts Table === */}
+      <div className="view-job-card-AJC__section">
+        <strong>Parts</strong>
+        <div className="table-responsive-AJC">
+          <table className="editable-table-AJC">
+            <thead>
+              <tr><th>Sr</th><th>Part</th><th>Qty</th><th>MRP</th><th>Rate</th><th>Disc%</th><th>GST%</th></tr>
+            </thead>
+            <tbody>
+              {selectedJob.parts.map((p, idx) => (
+                <tr key={p.id}>
+                  <td>{p.sr}</td>
+                  <td>{p.partDetails}</td>
+                  <td>{p.qty}</td>
+                  <td>₹{p.mrp}</td>
+                  <td>₹{p.rate}</td>
+                  <td>{p.disc}%</td>
+                  <td>{p.gst}%</td>
+                </tr>
+              ))}
+              <tr className="table-footer">
+                <td colSpan={6}><strong>Total</strong></td>
+                <td><strong>₹{calculatePartsTotal(selectedJob.parts).toFixed(2)}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="view-job-card-AJC__totals">
+        <p><strong>Total Cost:</strong> ₹{(calculateServiceTotal(selectedJob.services) + calculatePartsTotal(selectedJob.parts)).toFixed(2)}</p>
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '30px' }} className="hide-on-print">
+        <button onClick={handlePrint} style={{
+          padding: '10px 30px',
+          fontSize: '16px',
+          backgroundColor: '#3b59d2',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}>
+          🖨️ Print Job Card
+        </button>
+      </div>
+
     </div>
   </div>
-);
-
+</div>
+)
   const renderCancelMode = () => (
     <div className="popup-overlay-AJC">
       <div className="popup-card-AJC">
@@ -498,11 +583,10 @@ const renderViewMode = () => (
     </div>
   );
 
- 
   return (
     <div className="job-container-AJC">
       <ToastContainer position="top-right" autoClose={3000} />
-      <h2 className="title-AJC">Active Job Cards</h2>
+      <h2 className="title-AJC">ACTIVE JOB CARD</h2>
       <input
         className="search-input-AJC"
         type="text"
