@@ -6,7 +6,8 @@ import SellerDashboard from './seller/components/SellerDashboard'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import ProductList from './seller/components/products/ProductList'
+import LessStockReport from './seller/components/inventry/LessStockTable'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,6 +16,7 @@ function App() {
         App Components
         <SellerDashboard />
         <ToastContainer />
+
     </>
   )
 }

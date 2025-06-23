@@ -518,7 +518,7 @@ const SellerDashboard = () => {
                   <Link to="/employees/registration">Employee Registration </Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Team List</Link>
+                  <Link to="/employee/teamList">Team List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Attendance</Link>
