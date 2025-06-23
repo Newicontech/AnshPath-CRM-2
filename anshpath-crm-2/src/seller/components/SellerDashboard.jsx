@@ -360,7 +360,7 @@ const SellerDashboard = () => {
                   <Link to="#">Appointment List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Add Service</Link>
+                  <Link to="/services/addServices">Add Service</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Service List</Link>
@@ -372,7 +372,7 @@ const SellerDashboard = () => {
                   <Link to="#">Scheduled</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">History</Link>
+                  <Link to="/services/historyTable">History</Link>
                 </li>
               </ul>
             </li>
@@ -444,7 +444,7 @@ const SellerDashboard = () => {
                   <Link to="/inventory/purchaseOrders">Purchase Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Purchase Details</Link>
+                  <Link to="/inventory/purchaseDetails">Purchase Details</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/inventory/purchaseReturns">Purchase Returns</Link>
