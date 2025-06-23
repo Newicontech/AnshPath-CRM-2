@@ -64,7 +64,6 @@ const pdfStyles = StyleSheet.create({
 // PDF Component
 const PurchaseOrderPDF = ({ order }) => (
   <Document>
-    if (!order || !order.items || !order.summary) return null;
     <Page size="A4" style={pdfStyles.page}>
       <Text style={pdfStyles.header}>AnshPath Pvt Ltd</Text>
       <Text style={pdfStyles.subHeader}>
@@ -138,10 +137,10 @@ const PurchaseOrderPDF = ({ order }) => (
       <View style={pdfStyles.section}>
         {
           [
-            ["Basic Amount", `₹${order.summary.basicAmount.toFixed(2)}`],
-            ["Discount", `-₹${(order.summary.basicAmount * order.summary.discount) / 100}`],
-            ["GST (18%)", `₹${order.summary.gstAmount.toFixed(2)}`],
-            ["Other Charges", `₹${order.summary.otherCharges.toFixed(2)}`],
+            ["Basic Amount", order.summary.basicAmount.toFixed(2)],
+            ["Discount", `-${(order.summary.basicAmount * order.summary.discount) / 100}`],
+            ["GST (18%)", order.summary.gstAmount.toFixed(2)],
+            ["Other Charges", order.summary.otherCharges.toFixed(2)],
           ].map(([label, value]) => (
             <View style={pdfStyles.fieldContainer} key={label}>
               <Text style={pdfStyles.fieldLabel}>{label}:</Text>
@@ -151,7 +150,7 @@ const PurchaseOrderPDF = ({ order }) => (
 
         <View style={[pdfStyles.fieldContainer, pdfStyles.summaryTotal]}>
           <Text style={pdfStyles.fieldLabel}>Net Total:</Text>
-          <Text style={pdfStyles.fieldValue}>₹{order.summary.netTotal.toFixed(2)}</Text>
+          <Text style={pdfStyles.fieldValue}>{order.summary.netTotal.toFixed(2)}</Text>
         </View>
       </View>
     </Page>
@@ -174,6 +173,21 @@ function recalculateSummary(items, otherCharges = 0) {
     netTotal: basicAmount > 0 && Number.isFinite(netTotal) ? netTotal : 0
   };
 }
+
+// Label icons
+const labelIcons = {
+  "Supplier": "fa-user",
+  "Vendor Code": "fa-id-badge",
+  "Contact": "fa-phone",
+  "PO Number": "fa-file-alt",
+  "Date": "fa-calendar-alt",
+  "Status": "fa-info-circle",
+  "Basic Amount": "fa-rupee-sign",
+  "Discount": "fa-percent",
+  "GST (18%)": "fa-receipt",
+  "Other Charges": "fa-plus-circle",
+  "Net Total": "fa-calculator"
+};
 
 // Status badge color
 const statusColor = {
@@ -287,8 +301,6 @@ const PurchaseDetails = () => {
       o.id === updated.id ? { ...updated, items, summary } : o
     ));
     setModal({ open: false, order: null, mode: "view" });
-    // setOrders(orders.map((o) => (o.id === updated.id ? updated : o)));
-    // setModal({ open: false, order: null, mode: "view" });
   };
 
   // Filtered orders
@@ -360,20 +372,18 @@ const PurchaseDetails = () => {
                 >
                   <i className="fas fa-trash"></i> Del
                 </button>
-                {order && order.items && order.summary && order.items.length > 0 && (
-                  <PDFDownloadLink
-                    document={<PurchaseOrderPDF order={order} />}
-                    fileName={`PO_${order.purchaseOrderNo}.pdf`}
-                    className="btn btn-sm btn-outline-danger"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {({ loading }) => (
-                      <>
-                        <i className="fas fa-file-pdf"></i> {loading ? "..." : "PDF"}
-                      </>
-                    )}
-                  </PDFDownloadLink>
-                )}
+                <PDFDownloadLink
+                  document={<PurchaseOrderPDF order={order} />}
+                  fileName={`PO_${order.purchaseOrderNo}.pdf`}
+                  className="btn btn-sm btn-outline-danger"
+                  style={{ textDecoration: "none" }}
+                >
+                  {({ loading }) => (
+                    <>
+                      <i className="fas fa-file-pdf"></i> {loading ? "..." : "PDF"}
+                    </>
+                  )}
+                </PDFDownloadLink>
                 <button
                   className="btn btn-sm btn-outline-secondary"
                   onClick={() => {
@@ -414,7 +424,7 @@ function Modal({ children, onClose }) {
   );
 }
 
-// View Order (for view/print)
+// View Order 
 function ViewOrder({ order }) {
   return (
     <div className="view-order-POD">
@@ -523,7 +533,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
 
       <div className="form-container-POD">
         <div className="form-group-POD">
-          <label className="form-label-POD">Supplier:</label>
+          <label className="form-label-POD"><i className="fas fa-user" style={{ marginRight: 8, fontSize: 13 }}></i>Supplier:</label>
           <input
             value={form.supplierName}
             onChange={e => updateField("supplierName", e.target.value)}
@@ -531,7 +541,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
           />
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Vendor Code:</label>
+          <label className="form-label-POD"><i className="fas fa-id-badge" style={{ marginRight: 8, fontSize: 13 }}></i>Vendor Code:</label>
           <input
             value={form.vendorCode}
             onChange={e => updateField("vendorCode", e.target.value)}
@@ -539,7 +549,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
           />
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Contact:</label>
+          <label className="form-label-POD"><i className="fas fa-phone" style={{ marginRight: 8, fontSize: 13 }}></i>Contact:</label>
           <input
             value={form.contactNo}
             onChange={e => updateField("contactNo", e.target.value)}
@@ -547,7 +557,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
           />
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">PO Number:</label>
+          <label className="form-label-POD"><i className="fas fa-file-alt" style={{ marginRight: 8, fontSize: 13 }}></i>PO Number:</label>
           <input
             value={form.purchaseOrderNo}
             onChange={e => updateField("purchaseOrderNo", e.target.value)}
@@ -555,7 +565,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
           />
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Date:</label>
+          <label className="form-label-POD"><i className="fas fa-calendar-alt" style={{ marginRight: 8, fontSize: 13 }}></i>Date:</label>
           <input
             type="date"
             value={form.date}
@@ -564,7 +574,7 @@ function EditOrderForm({ order, onSave, onCancel }) {
           />
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Status:</label>
+          <label className="form-label-POD"><i className="fas fa-info-circle" style={{ marginRight: 8, fontSize: 13 }}></i>Status:</label>
           <select
             value={form.status}
             onChange={e => updateField("status", e.target.value)}
@@ -652,11 +662,6 @@ function EditOrderForm({ order, onSave, onCancel }) {
                 <td>
                   <button
                     className="btn btn-danger btn-sm"
-                    // onClick={() => setForm(f => ({
-                    //   // ...f,
-                    //     items= f.items.filter(i => i.sr !== item.sr).map((i, idx) => ({ ...i, sr: idx + 1 })),
-                    //   summary: recalculateSummary(f.items.filter(i => i.sr !== item.sr), f.summary.otherCharges)
-                    // }))}
                     onClick={() => setForm(f => {
                       const items = f.items
                         .filter(i => i.sr !== item.sr)
@@ -705,19 +710,19 @@ function EditOrderForm({ order, onSave, onCancel }) {
 
       <div className="summary-box-POD mt-3">
         <div className="form-group-POD">
-          <label className="form-label-POD">Basic Amount:</label>
+          <label className="form-label-POD"><i className="fas fa-rupee-sign" style={{ marginRight: 8, fontSize: 13 }}></i>Basic Amount:</label>
           <div className="form-control-static-POD">₹{form.summary.basicAmount.toFixed(2)}</div>
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Discount ({form.summary.discount.toFixed(2)}%):</label>
+          <label className="form-label-POD"><i className="fas fa-percent" style={{ marginRight: 8, fontSize: 13 }}></i>Discount ({form.summary.discount.toFixed(2)}%):</label>
           <div className="form-control-static-POD">-₹{(form.summary.basicAmount * form.summary.discount / 100).toFixed(2)}</div>
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">GST (18%):</label>
+          <label className="form-label-POD"><i className="fas fa-receipt" style={{ marginRight: 8, fontSize: 13 }}></i>GST (18%):</label>
           <div className="form-control-static-POD">₹{form.summary.gstAmount.toFixed(2)}</div>
         </div>
         <div className="form-group-POD">
-          <label className="form-label-POD">Other Charges:</label>
+          <label className="form-label-POD"><i className="fas fa-plus-circle" style={{ marginRight: 8, fontSize: 13 }}></i>Other Charges:</label>
           <input
             type="number"
             value={form.summary.otherCharges}
@@ -725,11 +730,10 @@ function EditOrderForm({ order, onSave, onCancel }) {
             step={0.01}
             onChange={e => updateField("otherCharges", parseFloat(e.target.value))}
             className="form-control-POD d-inline-block"
-            style={{ width: 100 }}
           />
         </div>
         <div className="form-group-POD summary-total" style={{ borderTop: "1px solid #ccc", marginTop: 8, paddingTop: 8 }}>
-          <label className="form-label-POD">Net Total:</label>
+          <label className="form-label-POD"><i className="fas fa-calculator" style={{ marginRight: 8, fontSize: 13 }}></i>Net Total:</label>
           <div className="form-control-static-POD">₹{form.summary.netTotal.toFixed(2)}</div>
         </div>
       </div>

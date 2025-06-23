@@ -16,9 +16,11 @@
   max-width: 1200px;
   margin: 32px auto;
   padding: 24px;
-  border-radius:16px;
-  background:var(--light-color-POD,  white);
-  box-shadow: 0 8px 32px rgba(67,97,238,0.08);
+  border-radius: 16px;
+  background: var(--light-color-POD, white);
+  box-shadow: 0 8px 32px rgba(67, 97, 238, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .purchase-order-container-POD::before {
@@ -27,7 +29,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 8px;
+  height: 4px;
   background: linear-gradient(90deg, var(--primary-color-POD), var(--accent-color-POD));
 }
 
@@ -63,9 +65,10 @@
 }
 
 .po-card-POD {
-  background: var(--light-color-POD, #fff);
+  background: #f4f7ff;
+  border: 1.5px solid #e3e8ff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(67,97,238,0.06);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.06);
   padding: 18px 18px 14px 18px;
   min-height: 220px;
   display: flex;
@@ -75,7 +78,7 @@
 }
 
 .po-card-POD:hover {
-  box-shadow: 0 6px 24px rgba(67,97,238,0.13);
+  box-shadow: 0 6px 24px rgba(67, 97, 238, 0.13);
   transform: translateY(-2px);
 }
 
@@ -85,10 +88,11 @@
   padding: 16px;
   margin-top: 8px;
   font-size: 1rem;
-  max-width: 350px;
+  max-width: 400px;
   margin-left: auto;
-  box-shadow: 0 2px 8px rgba(67,97,238,0.04);
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.04);
 }
+
 /* Edit summary: label + value/input neat row */
 .edit-order-form-POD .summary-box-POD .form-group-POD {
   display: flex;
@@ -111,7 +115,11 @@
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 6px 14px;
-  min-width: 0;
+  min-width: 140px;
+  max-width: 180px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
   font-size: 1.07rem;
   color: #222;
   box-shadow: none;
@@ -121,11 +129,24 @@
   align-items: center;
 }
 
+.edit-order-form-POD .summary-box-POD .form-group-POD,
+.view-order-POD .summary-box-POD .form-group-POD {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.edit-order-form-POD .summary-box-POD .form-label-POD,
+.view-order-POD .summary-box-POD .form-label-POD {
+  min-width: 150px;
+  flex-shrink: 0;
+}
+
 /* For input[type=number] in summary */
 .edit-order-form-POD .summary-box-POD input[type="number"].form-control-POD {
   max-width: 140px;
-  min-width: 80px;
-  text-align: right;
+  min-width: 49%;
+  text-align: left;
   background: #f4f6fb;
 }
 
@@ -181,8 +202,11 @@
 
 .modal-backdrop-POD {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(33,37,41,0.18);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(33, 37, 41, 0.18);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -192,7 +216,7 @@
 .modal-content-POD {
   background: var(--light-color-POD, #fff);
   border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(67,97,238,0.13);
+  box-shadow: 0 8px 32px rgba(67, 97, 238, 0.13);
   padding: 24px 18px 18px 18px;
   min-width: 200px;
   max-width: 800px;
@@ -223,7 +247,8 @@
 
 .modal-close-POD {
   position: absolute;
-  top: 10px; right: 18px;
+  top: 10px;
+  right: 18px;
   background: transparent;
   border: none;
   font-size: 2rem;
@@ -235,16 +260,16 @@
 .form-container-POD {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 16px;
 }
 
 .form-group-POD {
-    margin-bottom: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: space-between;
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-between;
 }
 
 .form-label-POD {
@@ -266,7 +291,7 @@
 
 .form-control-POD {
   display: block;
-  width: 100%;
+  width: 95%;
   padding: 8px 12px;
   font-size: 1rem;
   line-height: 1.5;
@@ -287,26 +312,73 @@
 }
 
 @media (max-width: 992px) {
-  .po-card-POD { min-height: 240px; }
-  .modal-content-POD { padding: 12px 4px; }
+  .po-card-POD {
+    min-height: 240px;
+  }
+
+  .modal-content-POD {
+    padding: 12px 4px;
+  }
 
 }
 
 @media (max-width: 768px) {
-  .purchase-order-container-POD { padding: 8px; }
-  .po-card-POD { padding: 12px 8px; }
-  .summary-box-POD { padding: 10px; font-size: 0.95rem; }
+  .purchase-order-container-POD {
+    padding: 8px;
+  }
+
+  .po-card-POD {
+    padding: 12px 8px;
+  }
+
+  .summary-box-POD {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 576px) {
-  .purchase-order-container-POD { padding: 2px; }
-  .modal-content-POD { width:80%; padding: 2px 0; }
-  .edit-order-form-POD, .view-order-POD { min-width: 0; padding: 4px 6%; }
+  .purchase-order-container-POD {
+    padding: 2px;
+  }
+
+  .modal-content-POD {
+    width: 80%;
+    padding: 2px 0;
+  }
+
+  .edit-order-form-POD,
+  .view-order-POD {
+    min-width: 0;
+    padding: 4px 6%;
+  }
+
+  .header-POD h2 {
+    margin: 20px;
+  }
+
+  .edit-order-form-POD .summary-box-POD .form-control-static-POD {
+    min-width: 255px;
+    max-width: 180px;
+    width: 100%;
+  }
+
+  .edit-order-form-POD .summary-box-POD input[type="number"].form-control-POD {
+    max-width: 140px;
+    min-width: 91%;
+  }
 }
 
 @keyframes fadeIn-SHT {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Dark mode */
@@ -318,13 +390,21 @@
   background: #23272f !important;
   color: #e0e0e0 !important;
 }
+
+.dark-mode-HDW-01 .po-card-POD {
+  background: #23283a !important;
+  /* dark blue-gray */
+  color: #e0e0e0 !important;
+  border: 1.5px solid #363b4a !important;
+}
+
 .dark-mode-HDW-01 .summary-box-POD {
   background: #181a1b !important;
   color: #e0e0e0 !important;
 }
 
-.dark-mode-HDW-01 .modal-close-POD { 
-  color: #4cc9f0 !important; 
+.dark-mode-HDW-01 .modal-close-POD {
+  color: #4cc9f0 !important;
 }
 
 .dark-mode-HDW-01 .table,
@@ -381,7 +461,7 @@
   color: #e0e0e0 !important;
 }
 
-.dark-mode-HDW-01 .edit-order-form-POD [style*="overflow-x: auto"], 
+.dark-mode-HDW-01 .edit-order-form-POD [style*="overflow-x: auto"],
 .dark-mode-HDW-01 .edit-order-form-POD .table-responsive {
   background: #181a1b !important;
 }
@@ -391,13 +471,16 @@
   height: 10px;
   background: #23272f;
 }
+
 .dark-mode-HDW-01 .edit-order-form-POD [style*="overflow-x: auto"]::-webkit-scrollbar-thumb {
   background: #4361ee;
   border-radius: 6px;
 }
+
 .dark-mode-HDW-01 .edit-order-form-POD [style*="overflow-x: auto"]::-webkit-scrollbar-thumb:hover {
   background: #4cc9f0;
 }
+
 /* Dark mode for view order */
 .dark-mode-HDW-01 .view-order-POD .form-control-static-POD {
   background: #23272f !important;
