@@ -317,10 +317,10 @@ const SellerDashboard = () => {
                   <Link to="#">Categories</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="/newOrders">New Orders</Link>
+                  <Link to="/products/newOrders">New Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="/processing">Processing</Link>
+                  <Link to="/products/processing">Processing</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Shipped/Delivered</Link>
@@ -369,7 +369,7 @@ const SellerDashboard = () => {
                   <Link to="#">New Requests</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="/scheduled/services">Scheduled</Link>
+                  <Link to="/services/scheduled">Scheduled</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/services/historyTable">History</Link>

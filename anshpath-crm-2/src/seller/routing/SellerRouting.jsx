@@ -12,13 +12,13 @@ import AddServices from '../components/services/AddServices';
 import ServiceHistoryTable from '../components/services/ServiceHistoryTable';
 import PurchaseDetails from '../components/inventry/PurchaseDetails';
 import ProductList from '../components/products/ProductList';
-import ScheduledServices from '../components/scheduled/ScheduledServices';
-import NewOrdersTable from '../components/newOrdersTable/NewOrdersTable';
+import ScheduledServices from '../components/services/ScheduledServices';
+import NewOrdersTable from '../components/products/NewOrdersTable';
 
 const SellerRouting = () => (
   <Routes>
     <Route path="/" element={<DashboardOverview />} />
-    <Route path="/processing" element={<ProductProcessing />} />
+    <Route path="/products/processing" element={<ProductProcessing />} />
     <Route path="/ServiceList" element={<ServiceLists />} />
     <Route path="/active-job-Cards" element={<ActiveJobCard />} />
     <Route path="/customers/ClientProfiles" element={<CLientJobCard />} />
@@ -27,8 +27,8 @@ const SellerRouting = () => (
     <Route path="/inventory/sparePartsAdd" element={<SparePartAdd />} />
     <Route path="/inventory/lessStockTable" element={<LessStockTable />} />
     <Route path="/products/productList" element={<ProductList />} />
-    <Route path="/newOrders" element={<NewOrdersTable/>}/>
-    <Route path="/scheduled/services" element={<ScheduledServices />} />
+    <Route path="/products/newOrders" element={<NewOrdersTable/>}/>
+    <Route path="/services/scheduled" element={<ScheduledServices />} />
     <Route path="/addProducts" element={<AddProducts />} />
     <Route path="/services/addServices" element={<AddServices />} />    
     <Route path="/services/historyTable" element={<ServiceHistoryTable />} /> 
