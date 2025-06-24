@@ -3,9 +3,9 @@
 
 /* Base Styles */
 :root {
-  --primary-gradient-PF: linear-gradient(135deg, #5a67d8 0%, #7d0bef 100%);
-  --primary-light-PF: #7d0bef;
-  --primary-dark-PF: #5a67d8;
+  --primary-gradient-PF: linear-gradient(135deg, #3f37c9 0%, #4361ee 100%);
+  --primary-light-PF: #4361ee;
+  --primary-dark-PF: #606de1;
   --text-dark-PF: #2d3748;
   --text-medium-PF: #4a5568;
   --text-light-PF: #718096;
@@ -59,7 +59,7 @@
 }
 /* Header Styles */
 .pf-header {
-  background: var(--primary-gradient-PF);
+  background: white;
   border-bottom: none;
   padding: 1.75rem 2.5rem;
   position: relative;
@@ -89,12 +89,14 @@
   100% { transform: translateX(100%) rotate(30deg); }
 }
 .pf-title {
-  color: white;
+  text-align: center;
+  color: #4361ee;
   font-weight: 700;
-  margin: 0;
-  font-size: 1.625rem;
+  margin: 0 auto;
+  font-size: 2.0rem;
   letter-spacing: 0.25px;
   position: relative;
+  justify-content: center;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -104,6 +106,16 @@
 .pf-title-icon {
   font-size: 1.5em;
   margin-right: 0.5rem;
+}
+.pf-floating-icon-1{
+  position: absolute;
+  top: 55%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  color: #e3e8ec;
+  opacity: 0.8; 
+  z-index: 0; 
 }
 /* Body Styles */
 .pf-body {
@@ -123,7 +135,7 @@
 }
 .pf-label {
   font-weight: 600;
-  color: #7d0bef;
+  color: #4361ee;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -176,10 +188,10 @@
 }
 /* Textarea */
 .pf-textarea {
-  min-height: 55px !important;
+  min-height: 70px !important;
   resize: vertical;
   padding: 1rem 1.25rem;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 /* Help Texts */
 .pf-hint {
@@ -253,7 +265,7 @@
 .pf-submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md-PF);
-  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  background: linear-gradient(135deg, #3f37c9 0%, #4361ee 100%);
 }
 .pf-submit-btn:hover::after {
   left: 100%;
@@ -502,9 +514,10 @@
     flex-direction: column;
     gap: 0.75rem;
     padding-top: 1.75rem;
+    align-items: center;
   }
     .pf-btn {
-    width: 100%;
+    width: 85%;
     padding: 0.875rem;
   }
     .pf-success {
@@ -513,6 +526,9 @@
     .pf-photo-preview {
     width: 120px;
     height: 120px;
+  }
+  .pf-floating-icon-1{
+    display: none;
   }
 }
 /* Animations */
@@ -595,7 +611,7 @@
 .pf-toggle-input:checked + .pf-toggle-slider:before {
   transform: translateX(24px);
 }
-.form-control {
+.pf-form-control {
     min-height: calc(1.0em + 1.80rem + calc(var(--bs-border-width) * 2));
 }
 /* Dark mode */
@@ -608,7 +624,7 @@
   background: linear-gradient(135deg, #23272f 0%, #3a3f4b 100%);
 }
 .dark-mode-HDW-01 .pf-title {
-  color: #fff;
+  color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-input,
 .dark-mode-HDW-01 .pf-select,
@@ -621,17 +637,17 @@
 .dark-mode-HDW-01 .pf-select:focus,
 .dark-mode-HDW-01 .pf-textarea:focus {
   background-color: #23272f;
-  border-color: #7c8cf9;
+  border-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-card {
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 .dark-mode-HDW-01 .pf-label {
-  color: #a5b4fc;
+  color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-photo-preview {
   background-color: #181a20;
-  border-color: #7c8cf9;
+  border-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-photo-upload-btn {
   background-color: #2d3748;
@@ -641,7 +657,7 @@
 .dark-mode-HDW-01 .pf-photo-upload-btn:hover {
   background-color: #4a5568;
   color: #fff;
-  border-color: #7c8cf9;
+  border-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-success {
   background-color: #1f2937;
@@ -666,7 +682,7 @@
   color: #fff;
 }
 .dark-mode-HDW-01 .pf-submit-btn {
-  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  background: linear-gradient(135deg, #3f37c9 0%, #4361ee 100%);
 }
 .dark-mode-HDW-01 .pf-cancel-btn {
   background-color: #e53e3e;
@@ -687,8 +703,8 @@
   border-color: #4a5568;
 }
 .dark-mode-HDW-01 .pf-checkbox-input:checked {
-  background-color: #7c8cf9;
-  border-color: #7c8cf9;
+  background-color: #4361ee;
+  border-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-checkbox-label {
   color: #a0aec0;
@@ -703,7 +719,7 @@
   background-color: #e2e8f0;
 }
 .dark-mode-HDW-01 .pf-toggle-input:checked + .pf-toggle-slider {
-  background-color: #7c8cf9;
+  background-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-toggle-input:checked + .pf-toggle-slider:before {
   transform: translateX(24px);
@@ -716,7 +732,7 @@
 }
 .dark-mode-HDW-01 .pf-floating-input:focus + .pf-floating-label,
 .dark-mode-HDW-01 .pf-floating-input:valid + .pf-floating-label {
-  color: #7c8cf9;
+  color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-floating-input {
   background-color: #181a20;
@@ -725,7 +741,7 @@
 }
 .dark-mode-HDW-01 .pf-floating-input:focus {
   background-color: #23272f;
-  border-color: #7c8cf9;
+  border-color: #4361ee;
 }
 .dark-mode-HDW-01 .pf-floating-input::placeholder {
   color: #a0aec0;
@@ -741,12 +757,44 @@
 }
 .dark-mode-HDW-01 .pf-floating-label:focus,
 .dark-mode-HDW-01 .pf-floating-label:valid {
-  transform: translateY(-1.25rem) scale(0.85);
-}
-.dark-mode-HDW-01 .pf-floating-label:focus,
-.dark-mode-HDW-01 .pf-floating-label:valid {
   background-color: #23272f;
-  color: #7c8cf9;
+  color: #4361ee;
   font-weight: 600;
   transform: translateY(-1.25rem) scale(0.85);
 }
+
+.dark-mode-HDW-01 .pf-floating-icon-1 {
+  color:#6D6D6D;
+  opacity: 0.8;
+}
+.dark-mode-HDW-01 .pf-floating-icon-1:hover {
+  color: #e0e0e0;
+  opacity: 1;
+}
+.dark-mode-HDW-01 .pf-floating-icon-1:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+.dark-mode-HDW-01 .pf-floating-icon-1:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(124, 140, 249, 0.5);
+}
+
+/* Dark mode webkit for browser */
+.dark-mode-HDW-01 select.pf-input::-webkit-scrollbar,
+.dark-mode-HDW-01 select.pf-select::-webkit-scrollbar {
+  width: 8px;
+  background: #181a20;
+}
+
+.dark-mode-HDW-01 select.pf-input::-webkit-scrollbar-thumb,
+.dark-mode-HDW-01 select.pf-select::-webkit-scrollbar-thumb {
+  background: #4361ee;
+  border-radius: 4px;
+}
+
+.dark-mode-HDW-01 select.pf-input::-webkit-scrollbar-thumb:hover,
+.dark-mode-HDW-01 select.pf-select::-webkit-scrollbar-thumb:hover {
+  background: #2746b0;
+}
+
