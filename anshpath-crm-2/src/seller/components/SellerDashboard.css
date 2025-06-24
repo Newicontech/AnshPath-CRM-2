@@ -1257,10 +1257,24 @@ input:checked + .slider-HDW-01:before {
 }
 
 @media (max-width: 1199.98px) {
+  .sidebar-HDW-01 {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    z-index: 1020;
+    transform: translateX(-100%);
+    transition: var(--transition);
+  }
+  .sidebar-HDW-01.show-HDW-01 {
+    transform: translateX(0);
+  }
+  .main-content-HDW-01 {
+    margin-left: 0 !important;
+  }
   :root {
     --sidebar-width: 280px;
   }
-  
   .mobile-action-buttons-HDW-01 {
     display: flex;
   }
@@ -1271,6 +1285,14 @@ input:checked + .slider-HDW-01:before {
   
   .header-actions-HDW-01 .theme-switch-HDW-01 {
     display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar-HDW-01 {
+    transform: translateX(0);
+  }
+  .main-content-HDW-01 {
+    margin-left: var(--sidebar-width);
   }
 }
 

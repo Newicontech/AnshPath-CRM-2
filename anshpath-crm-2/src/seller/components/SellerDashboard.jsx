@@ -273,7 +273,7 @@ const SellerDashboard = () => {
                   <Link to="/tables/approvalJobCard">Approval JobCard</Link>
                 </li>
                 <li className="submenu-item-HDW-01 text-danger" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Active JobCard</Link>
+                  <Link to="/active-job-Cards">Active JobCard</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/jobCards/jobHistory">Job History</Link>
@@ -308,28 +308,28 @@ const SellerDashboard = () => {
                 data-submenu="products-HDW-01"
               >
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Add Product</Link>
+                  <Link to="/addProducts">Add Product</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Product List</Link>
+                  <Link to="/products/productList">Product List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Categories</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">New Orders</Link>
+                  <Link to="/products/newOrders">New Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Processing</Link>
+                  <Link to="/products/processing">Processing</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Shipped/Delivered</Link>
+                  <Link to="/products/shippedDeliveredOrders">Shipped/Delivered</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/returnedProduct">Returns</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">History</Link>
+                  <Link to="/product-history">History</Link>
                 </li>
               </ul>
             </li>
@@ -360,19 +360,19 @@ const SellerDashboard = () => {
                   <Link to="#">Appointment List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Add Service</Link>
+                  <Link to="/services/addServices">Add Service</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Service List</Link>
+                  <Link to="/ServiceList">Service List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">New Requests</Link>
+                  <Link to="/NewRequests">New Requests</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Scheduled</Link>
+                  <Link to="/services/scheduled">Scheduled</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">History</Link>
+                  <Link to="/services/historyTable">History</Link>
                 </li>
               </ul>
             </li>
@@ -403,7 +403,7 @@ const SellerDashboard = () => {
                   <Link to="#">Vehicle Search</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Vehicle History</Link>
+                  <Link to="/VehicleHistory">Vehicle History</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Vehicle Reminders</Link>
@@ -444,7 +444,7 @@ const SellerDashboard = () => {
                   <Link to="/inventory/purchaseOrders">Purchase Orders</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Purchase Details</Link>
+                  <Link to="/inventory/purchaseDetails">Purchase Details</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/inventory/purchaseReturns">Purchase Returns</Link>
@@ -483,7 +483,7 @@ const SellerDashboard = () => {
                   <Link to="#">Add Customers</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Profiles</Link>
+                  <Link to="/customers/ClientProfiles">Profiles</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Feedback</Link>
@@ -635,7 +635,7 @@ const SellerDashboard = () => {
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/report/SearchFeedbackDetails">Feedback</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Stock Register</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Purchase Return</Link></li>
-                <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/reports/estimateDetails">Estimate Details</Link></li>
+                <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/EstimateDetail">Estimate Details</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Bank</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Customer</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Parts</Link></li>

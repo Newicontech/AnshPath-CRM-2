@@ -1,0 +1,159 @@
+/* ===================== 💡 Modal Overlay ===================== */
+.reject-modal-overlay-rm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===================== 📦 Modal Container ===================== */
+.reject-modal-rm .modal-content-rm {
+  background-color: var(--bg-light-nr);
+  color: var(--text-color);
+  border-radius: var(--border-radius-nr);
+  box-shadow: var(--box-shadow-nr);
+  border: 1px solid var(--border-color-nr);
+  width: 95%;
+  max-width: 900px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Responsive enhancement */
+@media (min-width: 1200px) {
+  .reject-modal-rm .modal-content-rm {
+    max-width: 1000px;
+  }
+}
+
+/* ===================== 🧢 Modal Header ===================== */
+.modal-header-rm {
+  background-color: var(--primary-color-nr);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title-rm {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-btn-rm {
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+/* ===================== 🧾 Modal Body ===================== */
+.modal-body-rm {
+  padding: 24px;
+  background-color: var(--bg-light-nr);
+}
+
+.form-label-rm {
+  font-weight: 600;
+  color: var(--text-color-nr);
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.textarea-rm {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--border-color-nr);
+  border-radius: 8px;
+  background-color: var(--bg-light-nr);
+  color: var(--text-color-nr);
+  font-size: 15px;
+  resize: vertical;
+  min-height: 180px;
+}
+
+/* ===================== ⚠️ Error Message ===================== */
+.error-message-rm {
+  color: var(--error-color-nr);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* ===================== 🎯 Modal Footer ===================== */
+.modal-footer-rm {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  background-color: var(--bg-light-nr);
+  gap: 12px;
+}
+
+/* ===================== 🔘 Buttons ===================== */
+.btn-cancel-rm,
+.btn-confirm-rm {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Cancel Button */
+.btn-cancel-rm {
+  background-color: var(--bg-muted-nr);
+  color: var(--text-color-nr);
+}
+
+.btn-cancel-rm:hover {
+  background-color: var(--border-color-nr);
+}
+
+/* Confirm (Reject) Button */
+.btn-confirm-rm {
+  background-color: var(--error-color-nr);
+  color: white;
+}
+
+.btn-confirm-rm:hover {
+  background-color: #c82333;
+}
+
+/* ===================== 🌙 Dark Mode Enhancements ===================== */
+.dark-mode-HDW-01 .reject-modal-rm .modal-content-rm,
+.dark-mode-HDW-01 .reject-modal-rm .modal-body-rm,
+.dark-mode-HDW-01 .reject-modal-rm .textarea-rm,
+.dark-mode-HDW-01 .reject-modal-rm .modal-footer-rm {
+  background-color: var(--bg-light-nr);
+  color: var(--text-color-nr);
+}
+
+.dark-mode-HDW-01 .reject-modal-rm .btn-cancel-rm {
+  background-color: var(--bg-muted-nr);
+  color: var(--text-color-nr);
+}
+
+.dark-mode-HDW-01 .reject-modal-rm .btn-cancel-rm:hover {
+  background-color: var(--border-color-nr);
+}
+
+.dark-mode-HDW-01 .reject-modal-rm .btn-confirm-rm {
+  background-color: var(--error-color-nr);
+  color: white;
+}
+
+.dark-mode-HDW-01 .reject-modal-rm .btn-confirm-rm:hover {
+  background-color: #ff4d4d;
+}

@@ -14,8 +14,8 @@ function App() {
   return (
     <>
         App Components
-        <SellerDashboard />
-        <ToastContainer />
+         <SellerDashboard />
+        <ToastContainer /> 
     </>
   )
 }
