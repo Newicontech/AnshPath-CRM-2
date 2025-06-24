@@ -329,7 +329,7 @@ const SellerDashboard = () => {
                   <Link to="#">Returns</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">History</Link>
+                  <Link to="/product-history">History</Link>
                 </li>
               </ul>
             </li>
@@ -366,7 +366,7 @@ const SellerDashboard = () => {
                   <Link to="/ServiceList">Service List</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">New Requests</Link>
+                  <Link to="/NewRequests">New Requests</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/services/scheduled">Scheduled</Link>
@@ -403,7 +403,7 @@ const SellerDashboard = () => {
                   <Link to="#">Vehicle Search</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Vehicle History</Link>
+                  <Link to="/VehicleHistory">Vehicle History</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Vehicle Reminders</Link>
@@ -635,7 +635,7 @@ const SellerDashboard = () => {
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/report/SearchFeedbackDetails">Feedback</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Stock Register</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Purchase Return</Link></li>
-                <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/reports/estimateDetails">Estimate Details</Link></li>
+                <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="/EstimateDetail">Estimate Details</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Bank</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Customer</Link></li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}><Link to="#">Parts</Link></li>
