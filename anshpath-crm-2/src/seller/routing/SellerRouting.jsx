@@ -15,6 +15,7 @@ import ProductList from '../components/products/ProductList';
 import ScheduledServices from '../components/services/ScheduledServices';
 import NewOrdersTable from '../components/products/NewOrdersTable';
 import StockDetails from '../components/inventry/StockDetails';
+import ShippedDeliveredOrdersTable from '../components/products/ShippedDeliveredOrdersTable';
 
 const SellerRouting = () => (
   <Routes>
@@ -36,6 +37,7 @@ const SellerRouting = () => (
     <Route path="/services/historyTable" element={<ServiceHistoryTable />} /> 
     <Route path="/inventory/purchaseDetails" element={<PurchaseDetails />} />
     <Route path="/products/productList" element={<ProductList />} />
+    <Route path="/products/shippedDeliveredOrders" element={<ShippedDeliveredOrdersTable />} />
   </Routes>
 );
 
