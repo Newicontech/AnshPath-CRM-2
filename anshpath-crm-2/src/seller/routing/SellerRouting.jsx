@@ -12,9 +12,9 @@ import AddServices from '../components/services/AddServices';
 import ServiceHistoryTable from '../components/services/ServiceHistoryTable';
 import PurchaseDetails from '../components/inventry/PurchaseDetails';
 import ProductList from '../components/products/ProductList';
-import SparePartsInventory from '../components/inventry/sparePartInventry/dummyinvetry/SparePartsInventory';
 import ScheduledServices from '../components/services/ScheduledServices';
 import NewOrdersTable from '../components/products/NewOrdersTable';
+import StockDetails from '../components/inventry/StockDetails';
 
 const SellerRouting = () => (
   <Routes>
@@ -27,7 +27,7 @@ const SellerRouting = () => (
     <Route path="/dashboard/overview" element={<DashboardOverview />} />
     <Route path="/inventory/sparePartsAdd" element={<SparePartAdd />} />
     <Route path="/inventory/lessStockTable" element={<LessStockTable />} />
-    <Route path="/AddSparePart" element={< SparePartsInventory/>} />
+    <Route path="/inventory/searchStockDetails" element={< StockDetails/>} />
     <Route path="/products/productList" element={<ProductList />} />
     <Route path="/products/newOrders" element={<NewOrdersTable/>}/>
     <Route path="/services/scheduled" element={<ScheduledServices />} />

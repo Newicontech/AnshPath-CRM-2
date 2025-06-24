@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import "./SparePartsInventory-spi-04.css";
+import "./StockDetails.css";
 import { FaCar, FaCogs, FaMoneyBillAlt, FaBarcode, FaBoxOpen, FaMapMarkerAlt, FaRupeeSign } from "react-icons/fa";
 
 // Dummy data generator util (for example/demo)
@@ -147,7 +147,7 @@ function downloadCSV(parts) {
 
 /**************************************************************** */
 
-export default function SparePartsInventory() {
+export default function StockDetails() {
   const [parts, setParts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

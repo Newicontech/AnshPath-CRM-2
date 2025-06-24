@@ -323,7 +323,7 @@ const SellerDashboard = () => {
                   <Link to="/products/processing">Processing</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="/AddSparePart">Shipped/Delivered</Link>
+                  <Link to="#">Shipped/Delivered</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="#">Returns</Link>
