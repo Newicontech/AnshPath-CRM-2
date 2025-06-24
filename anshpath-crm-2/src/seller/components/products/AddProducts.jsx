@@ -1,14 +1,283 @@
-import React from 'react'
+
+import React, { useState, useRef } from 'react';
+import { Container, Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { FiPackage, FiTag, FiTruck, FiDollarSign, FiArchive, FiFileText, FiImage, FiCheckCircle,FiTool } from 'react-icons/fi';
+import{GiSpanner ,GiCarWheel } from 'react-icons/gi'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './AddProducts.css'; 
 
 const AddProducts = () => {
+  const [formData, setFormData] = useState({
+    productName: '',
+    category: '',
+    brand: '',
+    vehicleCompatibility: '',
+    price: '',
+    discountPrice: '',
+    stockStatus: 'In Stock',
+    sku: '',
+    warranty: '',
+    keyFeatures: '',
+    shortDescription: '',
+    productImage: null
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const fileInputRef = useRef(null);
+
+  // Categories data
+  const categories = [
+  'Engine Parts',
+  'Engine Oil',
+  'Oil Filter',
+  'Air Filter',
+  'Fuel Filter',
+  'Spark Plug',
+  'Timing Belt',
+  'Piston',
+  'Cylinder Head',
+  'Gasket',
+  'Radiator',
+  'Water Pump',
+  'Alternator',
+  'Starter Motor',
+  'Battery',
+  'Clutch',
+  'Clutch Plate',
+  'Flywheel',
+  'Transmission',
+  'Gearbox',
+  'Drive Shaft',
+  'Axle',
+  'Differential',
+  'Suspension',
+  'Shock Absorber',
+  'Strut',
+  'Control Arm',
+  'Ball Joint',
+  'Steering',
+  'Steering Rack',
+  'Tie Rod',
+  'Power Steering Pump',
+  'Brake Systems',
+  'Brake Pad',
+  'Brake Disc',
+  'Brake Drum',
+  'Brake Caliper',
+  'Brake Booster',
+  'ABS Sensor',
+  'Tyres',
+  'Alloy Wheels',
+  'Wheel Bearing',
+  'Wheel Hub',
+  'Exhaust Systems',
+  'Muffler',
+  'Catalytic Converter',
+  'Exhaust Pipe',
+  'Interior Parts',
+  'Dashboard',
+  'Seat Cover',
+  'Floor Mat',
+  'Steering Wheel',
+  'Gear Knob',
+  'Lighting',
+  'Headlight',
+  'Tail Light',
+  'Fog Light',
+  'Indicator Light',
+  'Wiring Harness',
+  'Horn',
+  'Wiper Blade',
+  'Wiper Motor',
+  'Mirror',
+  'Side Mirror',
+  'Rear View Mirror',
+  'Door Handle',
+  'Window Regulator',
+  'Glass',
+  'Bumper',
+  'Grille',
+  'Bonnet',
+  'Fender',
+  'Spoiler',
+  'Accessories',
+  'Roof Rack',
+  'Body Cover',
+  'Parking Sensor',
+  'Reverse Camera',
+  'GPS Device',
+  'Infotainment System',
+  'Speakers',
+  'Amplifier',
+  'Air Conditioning',
+  'AC Compressor',
+  'AC Condenser',
+  'Blower Motor',
+  'Heater Core',
+  'Coolant',
+  'Fuel Pump',
+  'Fuel Injector',
+  'Fuel Tank',
+  'EGR Valve',
+  'Turbocharger',
+  'Timing Chain',
+  'Timing Cover',
+  'Crankshaft',
+  'Camshaft',
+  'Valve',
+  'Connecting Rod',
+  'Engine Mount',
+  'Transmission Mount',
+  'CV Joint',
+  'Universal Joint',
+  'Leaf Spring',
+  'Coil Spring',
+  'Stabilizer Bar',
+  'Bush Kit',
+  'Door Lock',
+  'Ignition Coil',
+  'ECU',
+  'Sensor',
+  'Relay',
+  'Fuse',
+  'Switch',
+  'Battery Cable',
+  'Starter Relay',
+  'Throttle Body',
+  'Idle Air Control Valve',
+  'MAP Sensor',
+  'Oxygen Sensor',
+  'Mass Air Flow Sensor',
+  'Crankshaft Position Sensor',
+  'Camshaft Position Sensor',
+  'Thermostat',
+  'Radiator Cap',
+  'Expansion Tank',
+  'Heater Hose',
+  'Vacuum Hose',
+  'PCV Valve',
+  'EGR Cooler',
+  'Glow Plug',
+  'Diesel Filter',
+  'Timing Tensioner',
+  'Timing Guide',
+  'Oil Pump',
+  'Oil Pan',
+  'Dipstick',
+  'Transmission Fluid',
+  'Differential Oil',
+  'Grease',
+  'Sealant',
+  'Adhesive',
+  'Cleaning Kit',
+  'Polish',
+  'Wax',
+  'Tyre Inflator',
+  'Jack',
+  'Tool Kit',
+  'First Aid Kit'
+];
+
+  const stockStatusOptions = [
+    'In Stock',
+    'Out of Stock',
+    'Limited Stock',
+    'Pre-order'
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData({
+          ...formData,
+          productImage: reader.result
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const requiredFields = ['productName', 'category', 'brand', 'price'];
+
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    if (formData.price && isNaN(formData.price)) {
+      newErrors.price = 'Please enter a valid price';
+    }
+
+    if (formData.discountPrice && isNaN(formData.discountPrice)) {
+      newErrors.discountPrice = 'Please enter a valid discount price';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Product submitted:', formData);
+      setIsSubmitted(true);
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      productName: '',
+      category: '',
+      brand: '',
+      vehicleCompatibility: '',
+      price: '',
+      discountPrice: '',
+      stockStatus: 'In Stock',
+      sku: '',
+      warranty: '',
+      keyFeatures: '',
+      shortDescription: '',
+      productImage: null
+    });
+    setErrors({});
+    setIsSubmitted(false);
+  };
+
+
   return (
     <Container className="pf-container">
       <Card className="pf-card">
         <Card.Header className="pf-header">
-          <h5 className="pf-title">
+          <h2 className="pf-title">
             <FiPackage className="me-2" />
             Add Automobile Product
-          </h5>
+          </h2>
+          <GiCarWheel className="pf-floating-icon-1" />
         </Card.Header>
         <Card.Body className="pf-body">
           {isSubmitted ? (
@@ -255,7 +524,7 @@ const AddProducts = () => {
                       value={formData.keyFeatures}
                       onChange={handleChange}
                       rows={3}
-                      className="pf-input pf-textarea form-control"
+                      className="pf-input pf-textarea pf-form-control"
                       placeholder="Bullet points about product features"
                     />
                   </Form.Group>
