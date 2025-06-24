@@ -276,7 +276,7 @@ const SellerDashboard = () => {
                   <Link to="/active-job-Cards">Active JobCard</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="/job-cards/history">Job History</Link>
+                  <Link to="/jobCards/jobHistory">Job History</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/job-cards/estimate">Quick Estimate</Link>
@@ -326,7 +326,7 @@ const SellerDashboard = () => {
                   <Link to="/products/shippedDeliveredOrders">Shipped/Delivered</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
-                  <Link to="#">Returns</Link>
+                  <Link to="/returnedProduct">Returns</Link>
                 </li>
                 <li className="submenu-item-HDW-01" onClick={closeSidebarOnMobile}>
                   <Link to="/product-history">History</Link>

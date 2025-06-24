@@ -1,6 +1,8 @@
 
 import { Routes, Route } from 'react-router-dom';
 import DashboardOverview from '../components/dashboard/DashboardOverview';
+import ReturnedProductsTable from '../components/products/ReturnedProductsTable';
+import JobCardHistory from '../components/jobCards/JobCardHistory';
 import ProductHistoryTable from '../components/products/ProductHistoryTable';
 import NewRequests from '../components/services/NewRequests';
 import VehicleHistory from '../components/vehicals/VehicleHistory';
@@ -24,6 +26,8 @@ import ShippedDeliveredOrdersTable from '../components/products/ShippedDelivered
 const SellerRouting = () => (
   <Routes>
     <Route path="/" element={<DashboardOverview />} />
+    <Route path="/returnedProduct" element={<ReturnedProductsTable />} />
+    <Route path="/jobCards/jobHistory" element={<JobCardHistory/>} />
     <Route path="/products/processing" element={<ProductProcessing />} />
     <Route path="/ServiceList" element={<ServiceLists />} />
     <Route path="/active-job-Cards" element={<ActiveJobCard />} />
@@ -42,7 +46,7 @@ const SellerRouting = () => (
     <Route path="/inventory/purchaseDetails" element={<PurchaseDetails />} />
     <Route path="/products/productList" element={<ProductList />} />
     <Route path="/products/shippedDeliveredOrders" element={<ShippedDeliveredOrdersTable />} />
-     <Route path="/product-history" element={<ProductHistoryTable />} />
+    <Route path="/product-history" element={<ProductHistoryTable />} />
     <Route path="/NewRequests" element={<NewRequests />} />
     <Route path="/VehicleHistory" element={<VehicleHistory />} />
     <Route path="/EstimateDetail" element={<EstimateDetail />} />
